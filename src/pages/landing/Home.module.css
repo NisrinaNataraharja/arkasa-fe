@@ -1,0 +1,97 @@
+.home_page {
+    width: 100%;
+    /* margin-bottom: 50px; */
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+}
+
+.banner_1 {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.banner_1 div {
+    margin-left: 130px;
+    margin-top: 100px;
+}
+
+.banner_1 h1 {
+    font-size: 54px;
+    margin: 0;
+}
+
+.banner_1 p {
+    margin: 0;
+}
+
+.banner_1 h1 span {
+    color: #2395FF;
+}
+
+.banner_2 {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.banner_2 img {
+    height: 500px;
+    width: 420px;
+    align-self: flex-end;
+}
+
+.trending {
+    width: 100%;
+    margin-top: 150px;
+}
+
+.trending_container {
+    /* width: 100%; */
+    padding: 0px 130px;
+}
+
+.trending_container p {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.3em;
+    color: #2395FF;
+    margin: 0;
+}
+
+.trending_container div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trending_container div h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+    margin: 0;
+}
+
+.cards {
+    height: fit-content;
+    /* background: #2395FF; */
+    margin-top: 40px;
+    border-radius: 15px;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 20px;
+}
+
+.top_10 {
+    /* width: 100%; */
+    margin-top: 100px;
+    padding: 0px 130px;
+}

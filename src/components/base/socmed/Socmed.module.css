@@ -1,0 +1,19 @@
+.socmed {
+    width: fit-content;
+    height: fit-content;
+}
+
+.socmed h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.icons svg {
+    cursor: pointer;
+}

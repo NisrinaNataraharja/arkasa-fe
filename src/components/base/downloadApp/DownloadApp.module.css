@@ -1,0 +1,16 @@
+.download {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.download h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.download img {
+    cursor: pointer;
+}
