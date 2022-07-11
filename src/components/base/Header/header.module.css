@@ -1,0 +1,16 @@
+.main {
+    width: 100%;
+    height: 176px;
+    background: #2395FF;
+    border-radius: 0px 0px 30px 30px;
+}
+
+.plane {
+    height: 171.29049682617188px;
+    width: 225px;
+    left: -8px;
+    top: 162.4556884765625px;
+    border-radius: 0px;
+    background-image: url(../../../assets/img/planeBlue.png);
+    background-repeat: no-repeat;
+}
