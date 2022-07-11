@@ -1,12 +1,13 @@
 import './App.css';
-import Home from './pages/landing';
+import Routers from './config/routers/routers';
+// import Home from './pages/landing';
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+      <Routers />
   );
 }
+
+
 
 export default App;
