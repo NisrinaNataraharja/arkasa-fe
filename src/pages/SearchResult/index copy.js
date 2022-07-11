@@ -68,23 +68,23 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                                                    Transit
+                                                    Facilities
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
                                                 <div className="accordion-body p-1 m-0">
                                                     <ul className="list-group list-group-flush">
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Luggage
                                                             <input
                                                                 type='checkbox'
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">In-Flight Meal
                                                             <input
                                                                 type='checkbox'
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Transit 2+
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Wifi
                                                             <input
                                                                 type='checkbox'
                                                             />
@@ -97,23 +97,28 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingThree">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
-                                                    Transit
+                                                    Departure Time
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
                                                 <div className="accordion-body p-1 m-0">
                                                     <ul className="list-group list-group-flush">
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
                                                             <input
                                                                 type='checkbox'
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
                                                             <input
                                                                 type='checkbox'
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Transit 2+
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
                                                             <input
                                                                 type='checkbox'
                                                             />
@@ -126,23 +131,57 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFour">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
-                                                    Transit
+                                                    Time Arrived
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFour" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
                                                 <div className="accordion-body p-1 m-0">
                                                     <ul className="list-group list-group-flush">
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
                                                             <input
                                                                 type='checkbox'
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
                                                             <input
                                                                 type='checkbox'
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Transit 2+
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <hr className='m-3 mb-0' />
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingFourHalf">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourHalf" aria-expanded="true" aria-controls="panelsStayOpen-collapseFourHalf">
+                                                    Time Arrived
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseFourHalf" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFourHalf">
+                                                <div className="accordion-body p-1 m-0">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Garuda Indonesia
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Air Asia
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Lion Air
                                                             <input
                                                                 type='checkbox'
                                                             />
@@ -155,7 +194,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFive">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
-                                                    Transit
+                                                    Ticket Price
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFive" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
@@ -178,7 +217,7 @@ const SearchResult = () => {
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">
                                                             <input
                                                                 style={{
-                                                                    width: "25%", color: '#2395FF', background: 'white', border: 'none'
+                                                                    width: "25%", background: 'white', border: 'none'
                                                                 }}
                                                                 type='text'
                                                                 placeholder={'$' + value[0] + ',00'}
@@ -190,7 +229,7 @@ const SearchResult = () => {
                                                                 placeholder={'$' + value[1] + ',00'}
                                                                 className='form-control '
                                                                 style={{
-                                                                    width: "22%", color: '#2395FF', background: 'white', border: 'none'
+                                                                    width: "22%", background: 'white', border: 'none'
                                                                 }}
                                                                 disabled
                                                             />
