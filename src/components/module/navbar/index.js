@@ -5,7 +5,26 @@ import styles from './Navbar.module.css'
 
 function Navbar() {
 
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(true)
+    const [isModalActive, setIsModalActive] = useState(false)
+    const [menuActive, setMenuActive] = useState('')
+
+    const handleMenuActive = (e) => {
+        const menu = e.target.innerText
+        if (menu === 'Find Ticket') {
+            setIsModalActive(!isModalActive)
+            setMenuActive(menu)
+            if(isModalActive === true) {
+                setMenuActive('')
+            }
+        } else {
+            setMenuActive(menu)
+            setIsModalActive(false)
+        }
+    }
+
+    console.log(isModalActive)
+    console.log(menuActive)
 
     return (
         <nav className={`${styles.navbar}`}>
@@ -15,8 +34,14 @@ function Navbar() {
                     <input type="text" placeholder='&#xF002; Where you want to go?' />
                 </div>
                 <div className={`${styles.menu}`}>
-                    <p>Find Ticket</p>
-                    <p>My Booking</p>
+                    <p
+                        onClick={handleMenuActive}
+                        className={menuActive === 'Find Ticket' ? `${styles.menu_active}` : ''}
+                    >Find Ticket</p>
+                    <p
+                        onClick={handleMenuActive}
+                        className={menuActive === 'My Booking' ? `${styles.menu_active}` : ''}
+                    >My Booking</p>
                 </div>
                 {isLogin === true ?
                     <div className={`${styles.user_menu}`}>
@@ -44,6 +69,70 @@ function Navbar() {
                     <button className={`${styles.signup_btn}`}>Sign Up</button>
                 }
             </div>
+            {isModalActive &&
+                <div className={`${styles.find_ticket_modal}`}>
+                    <h5>Hey, Where you want to go?</h5>
+                    <div className={`${styles.recently}`}>
+                        <p>Recently Searched</p>
+                        <img src="/assets/img/icons/btnback.png" alt="" />
+                    </div>
+                    <div className={`${styles.departures}`}>
+                        <div className={`${styles.from}`}>
+                            <p>From</p>
+                            <h4>Medan</h4>
+                            <p>Indonesia</p>
+                        </div>
+                        <img src="/assets/img/icons/two-way.png" alt="" />
+                        <div className={`${styles.to}`}>
+                            <p>To</p>
+                            <h4>Tokyo</h4>
+                            <p>japan</p>
+                        </div>
+                    </div>
+                    <div className={`${styles.route}`}>
+                        <button className={`${styles.one_way}`}>
+                            <img src="/assets/img/icons/one-way.png" alt="" />
+                            <span>One Way</span>
+                        </button>
+                        <button className={`${styles.round_trip}`}>
+                            <img src="/assets/img/icons/round-trip.png" alt="" />
+                            <span>Round Trip</span>
+                        </button>
+                    </div>
+                    <div className={`${styles.date}`}>
+                        <label htmlFor="">Departure</label>
+                        <input type="date" />
+                    </div>
+                    <div className={`${styles.passenger_count}`}>
+                        <label htmlFor="">How many persons?</label>
+                        <div>
+                            <input type="number" name='child' placeholder='child' />
+                            <input type="number" name='adult' placeholder='adult' />
+                        </div>
+                    </div>
+                    <div className={`${styles.class}`}>
+                        <label htmlFor="">Which class do you want?</label>
+                        <div>
+                            <label htmlFor="economy">
+                                <input type="radio" name='class' id='economy' />
+                                Economy
+                            </label>
+                            <label htmlFor="business">
+                                <input type="radio" name='class' id='business' />
+                                Business
+                            </label>
+                            <label htmlFor="firstClass">
+                                <input type="radio" name='class' id='firstClass' />
+                                First Class
+                            </label>
+                        </div>
+                    </div>
+                    <button className={`${styles.search_btn}`}>
+                        search flight
+                        <img src="/assets/img/icons/right-arrow.png" alt="" />
+                    </button>
+                </div>
+            }
         </nav>
     )
 }
