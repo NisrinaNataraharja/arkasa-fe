@@ -1,0 +1,27 @@
+.mainlogo {
+  /* background-color: red; */
+}
+.img1 {
+  position: relative;
+}
+.img2 {
+  position: absolute;
+  /* background-color: aqua; */
+  margin-top: -300px;
+  margin-left: 50px;
+}
+.img3 {
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 50px;
+}
+.img4 {
+  position: absolute;
+  margin-top: -250px;
+  margin-left: 300px;
+}
+.img5 {
+  position: absolute;
+  margin-top: -400px;
+  margin-left: 210px;
+}

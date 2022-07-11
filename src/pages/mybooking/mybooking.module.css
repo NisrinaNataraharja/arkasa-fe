@@ -1,0 +1,69 @@
+.myBookingPage {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0px;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  background-color: #f5f6fa;
+}
+.content {
+  display: flex;
+  background-color: #f5f6fa;
+  width: 100%;
+  margin: 10px 0;
+}
+.profileContent {
+  display: none;
+}
+.bookingContent {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 15px;
+  width: 100vh;
+  /* background-color: aquamarine; */
+}
+.bookingContent p {
+  color: #2395ff;
+  font-weight: 500;
+  line-height: 18x;
+  letter-spacing: 0.3em;
+}
+.titleHistori {
+  color: #2395ff;
+}
+.titleBooking {
+  font-size: 18px;
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .myBookingPage {
+    font-weight: 400;
+  }
+  .profileContent {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+  }
+  .bookingContent {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+  .titleBooking {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+.orderTitle {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: aqua; */
+  width: 100%;
+}
+.historyBooking {
+  display: flex;
+  flex-direction: column;
+}
