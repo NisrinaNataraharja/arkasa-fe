@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Page404 from '../../pages/notFound/Page404'
+import FlightDetail from '../../pages/flightDetail'
 import Home from '../../pages/landing'
+import Page404 from '../../pages/notFound/Page404'
 
 const Routers = () => {  
 
@@ -9,6 +10,7 @@ const Routers = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/flight-detail" element={<FlightDetail />}/>
         {/* <Route path="/productlist" element={<ProductList/>} />
         <Route path="/home" element={<Home/>}/>
         <Route path="/product" element={<Product/>}/>
