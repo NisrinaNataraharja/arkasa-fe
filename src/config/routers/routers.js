@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import SearchResult from '../../pages/SearchResult/index'
 import BookingDetail from '../../pages/BookingDetail'
-import SearchResult2 from '../../pages/SearchResult/index copy'
+import SearchResult from '../../pages/SearchResult'
 
 const Routers = () => {  
 
@@ -10,7 +9,6 @@ const Routers = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/searchResult" element={<SearchResult />}/>
-        <Route path="/searchResult2" element={<SearchResult2 />}/>
         <Route path="/bookingDetail" element={<BookingDetail />}/>
       </Routes>
     </BrowserRouter>

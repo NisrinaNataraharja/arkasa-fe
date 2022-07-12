@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js';
 import './searchResult.module.css'
 import Header from '../../components/base/Header/index'
 import up from '../../assets/img/up.png'
 import CardTicket from '../../components/base/CardTicket';
+import style from './searchResult.module.css'
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 const SearchResult = () => {
+    const [value, setValue] = React.useState([0, 100]);
+    console.log(value);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
     return (
         <>
             <div style={{ background: "#F5F6FA", width: "100%", height: "100vh" }}>
                 <Header />
-                <div className='container-fluid pe-5 ps-5' style={{ background: "#F5F6FA", width: "1366px", height: "1725px" }}>
+                <div className='container-fluid pe-5 ps-5' style={{ background: "#F5F6FA", width: "100%", height: "1725px" }}>
                     <div className='row'>
                         {/* left filter */}
                         <div className='col col-lg-4'
@@ -25,176 +35,211 @@ const SearchResult = () => {
                             </div>
                             <div className="card" style={{ width: "98%", border: "none", listStyle: "none", borderRadius: "15px" }}>
                                 <div className="d-flex justify-content-between mt-4 pe-3 ps-3">
-                                    <b>Transit</b>
-                                    <img
-                                        className='mt-2'
-                                        src={up}
-                                        alt='up'
-                                        style={{ width: '14px', height: '10px' }}
-                                    />
+                                    <div className="accordion" id="accordionPanelsStayOpenExample" style={{ width: "100%" }}>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingOne">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                                    Transit
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div className="accordion-body p-1 m-0">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Transit 2+
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <hr className='m-3 mb-0' />
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                                                    Facilities
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                                                <div className="accordion-body p-1 m-0">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Luggage
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">In-Flight Meal
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Wifi
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <hr className='m-3 mb-0' />
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingThree">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                                                    Departure Time
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
+                                                <div className="accordion-body p-1 m-0">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <hr className='m-3 mb-0' />
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingFour">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
+                                                    Time Arrived
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseFour" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+                                                <div className="accordion-body p-1 m-0">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <hr className='m-3 mb-0' />
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingFourHalf">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourHalf" aria-expanded="true" aria-controls="panelsStayOpen-collapseFourHalf">
+                                                    Airlines
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseFourHalf" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFourHalf">
+                                                <div className="accordion-body p-1 m-0">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Garuda Indonesia
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Air Asia
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Lion Air
+                                                            <input
+                                                                type='checkbox'
+                                                            />
+                                                        </li>
+                                                        <hr className='m-3 mb-0' />
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`${style.square} accordion-item`}>
+                                            <h2 className="accordion-header" id="panelsStayOpen-headingFive">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
+                                                    Ticket Price
+                                                </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseFive" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+                                                <div className="accordion-body p-1 m-0 mb-3">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Lowest
+                                                            <span>Highest</span>
+                                                        </li>
+                                                        <div className='p-3'>
+                                                            <Box >
+                                                                <Slider
+                                                                    getAriaLabel={() => 'Temperature range'}
+                                                                    value={value}
+                                                                    onChange={handleChange}
+                                                                    valueLabelDisplay="auto"
+                                                                // getAriaValueText={valuetext}
+                                                                />
+                                                            </Box>
+                                                        </div>
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">
+                                                            <input
+                                                                style={{
+                                                                    width: "25%", background: 'white', border: 'none'
+                                                                }}
+                                                                type='text'
+                                                                placeholder={'$' + value[0] + ',00'}
+                                                                className='form-control'
+                                                                disabled
+                                                            />
+                                                            <input
+                                                                type='text'
+                                                                placeholder={'$' + value[1] + ',00'}
+                                                                className='form-control '
+                                                                style={{
+                                                                    width: "22%", background: 'white', border: 'none'
+                                                                }}
+                                                                disabled
+                                                            />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Transit 2+
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <hr className='m-3 mb-0' />
-                                </ul>
-                                <div className="d-flex justify-content-between mt-4 pe-3 ps-3">
-                                    <b>Facilities</b>
-                                    <img
-                                        className='mt-2'
-                                        src={up}
-                                        alt='up'
-                                        style={{ width: '14px', height: '10px' }}
-                                    />
-                                </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Luggage
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">In-Flight Meal
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Wi-fi
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <hr className='m-3 mb-0' />
-                                </ul>
-                                <div className="d-flex justify-content-between mt-4 pe-3 ps-3">
-                                    <b>Departure Time</b>
-                                    <img
-                                        className='mt-2'
-                                        src={up}
-                                        alt='up'
-                                        style={{ width: '14px', height: '10px' }}
-                                    />
-                                </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <hr className='m-3 mb-0' />
-                                </ul>
-                                <div className="d-flex justify-content-between mt-4 pe-3 ps-3">
-                                    <b>Time Arrived</b>
-                                    <img
-                                        className='mt-2'
-                                        src={up}
-                                        alt='up'
-                                        style={{ width: '14px', height: '10px' }}
-                                    />
-                                </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <hr className='m-3 mb-0' />
-                                </ul>
-                                <div className="d-flex justify-content-between mt-4 pe-3 ps-3">
-                                    <b>Airlines</b>
-                                    <img
-                                        className='mt-2'
-                                        src={up}
-                                        alt='up'
-                                        style={{ width: '14px', height: '10px' }}
-                                    />
-                                </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Garuda Indonesia
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Air Asia
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Lion Air
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <hr className='m-3 mb-0' />
-                                </ul>
-                                <div className="d-flex justify-content-between mt-4 pe-3 ps-3">
-                                    <b>Ticket Price</b>
-                                    <img
-                                        className='mt-2'
-                                        src={up}
-                                        alt='up'
-                                        style={{ width: '14px', height: '10px' }}
-                                    />
-                                </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                    <li className="d-flex justify-content-between mt-3 pe-3 ps-3 mb-5">Transit 2+
-                                        <input
-                                            type='checkbox'
-                                        />
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                         {/* right ticket result */}
