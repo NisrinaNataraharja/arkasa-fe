@@ -10,7 +10,17 @@
     width: 225px;
     left: -8px;
     top: 162.4556884765625px;
-    border-radius: 0px;
     background-image: url(../../../assets/img/planeBlue.png);
     background-repeat: no-repeat;
+}
+
+.content {
+    width: 100%;
+   margin-left: 50% !important;
+
+}
+
+.right {
+    margin-top: -100px;
+    padding-right: 20px;
 }

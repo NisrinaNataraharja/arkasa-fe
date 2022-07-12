@@ -3,14 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './searchResult.module.css'
 import Header from '../../components/base/Header/index'
-import up from '../../assets/img/up.png'
 import CardTicket from '../../components/base/CardTicket';
 import style from './searchResult.module.css'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import HeaderSearch from '../../components/base/Header/headerSearch';
 
 const SearchResult = () => {
-    const [value, setValue] = React.useState([0, 100]);
+    const [value, setValue] = useState([0, 100]);
     console.log(value);
 
     const handleChange = (event, newValue) => {
@@ -19,7 +19,9 @@ const SearchResult = () => {
     return (
         <>
             <div style={{ background: "#F5F6FA", width: "100%", height: "100vh" }}>
-                <Header />
+                <HeaderSearch 
+                
+                />
                 <div className='container-fluid pe-5 ps-5' style={{ background: "#F5F6FA", width: "100%", height: "1725px" }}>
                     <div className='row'>
                         {/* left filter */}
@@ -39,7 +41,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingOne">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                                    Transit
+                                                    <b>Transit</b>
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
@@ -68,7 +70,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                                                    Facilities
+                                                    <b>Facilities</b>
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
@@ -97,7 +99,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingThree">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
-                                                    Departure Time
+                                                    <b>Departure Time</b>
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
@@ -131,7 +133,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFour">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
-                                                    Time Arrived
+                                                   <b>Time Arrived</b> 
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFour" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
@@ -165,7 +167,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFourHalf">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourHalf" aria-expanded="true" aria-controls="panelsStayOpen-collapseFourHalf">
-                                                    Airlines
+                                                   <b>Airlines</b> 
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFourHalf" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFourHalf">
@@ -194,7 +196,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFive">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
-                                                    Ticket Price
+                                                    <b>Ticket Price</b>
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFive" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
