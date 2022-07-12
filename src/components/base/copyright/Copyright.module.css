@@ -1,0 +1,17 @@
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.copyright p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #6B6B6B;
+}

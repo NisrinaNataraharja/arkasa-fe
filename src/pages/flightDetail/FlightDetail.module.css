@@ -1,0 +1,423 @@
+.flight_detail {
+    width: 100%;
+    background: #F5F6FA;
+    position: relative;
+}
+
+.detail_bg {
+    width: 100%;
+    height: 176px;
+    background: #2395FF;
+    border-radius: 0px 0px 30px 30px;
+    background-image: url('/public/assets/img/bg-top10.png');
+    background-size: 225px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    /* position: sticky;
+    top: 100px; */
+}
+
+.detail_container {
+    /* width: 100%; */
+    padding: 0px 70px;
+    /* border: 2px solid black; */
+    margin-top: -140px;
+    display: flex;
+    position: relative;
+}
+
+.detail_1 {
+    width: 60%;
+}
+
+.contact_person {
+    /* padding: 35px 40px; */
+    width: 100%;
+    /* height: 500px; */
+}
+
+.contact_person h3 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.contact_form {
+    width: 87%;
+    /* height: 300px; */
+    background: #FFF;
+    border-radius: 15px;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input_form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0px;
+    /* background: red; */
+}
+
+.input_form label {
+    font-weight: 400;
+    font-size: 14px;
+    color: #9B96AB;
+    margin-left: 10px;
+}
+
+.input_form input {
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(210, 194, 255, 0.68);
+}
+
+.input_form select {
+    padding: 10px;
+    outline: none;
+    border: none;
+    /* border-bottom: 2px solid rgba(210, 194, 255, 0.68); */
+}
+
+.phone_number {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 2px solid rgba(210, 194, 255, 0.68);
+
+}
+
+.phone_number span {
+    height: 50%;
+    width: 2px;
+    background: rgba(210, 194, 255, 0.68);
+}
+
+.input_form .phone_number input {
+    border-bottom: none;
+}
+
+.validation {
+    /* height: 50px; */
+    background: rgba(242, 69, 69, 0.1);
+    border-radius: 10px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 16.5px;
+}
+
+.validation p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #595959;
+    margin: 0;
+}
+
+.passenger_detail1 {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.passenger_detail1 h3 {
+    font-size: 24px;
+}
+
+.pass_detail_form {
+    width: 87%;
+    height: fit-content;
+    background: #FFF;
+    padding: 30px 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.passenger_detail1 .detail_action {
+    /* width: 100%; */
+    padding: 17px 28px;
+    background: rgba(35, 149, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detail_action p {
+    font-size: 14px;
+    color: #595959;
+    margin: 0;
+}
+
+.detail_action .action_toggler {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pass_detail_form .input_select {
+    border-bottom: 2px solid rgba(210, 194, 255, 0.68);
+}
+
+.pass_detail_form .input_select select {
+    width: fit-content;
+}
+
+.passenger_detail2 {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.passenger_detail2 h3 {
+    font-size: 24px;
+}
+
+.pass_detail2_form {
+    width: 691px;
+    background: #FFF;
+    padding: 30px 0px;
+    border-radius: 15px;
+    /* display: flex;
+    align-items: flex-start; */
+}
+
+.insurance {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(210, 194, 255, 0.68);
+    padding: 0px 30px;
+    padding-bottom: 10px;
+}
+
+.insurance .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* position: relative; */
+}
+
+.insurance .checkbox .container {
+    /* display: block; */
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 17px;
+    width: 17px;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+    z-index: 3;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    /* background-color: #eee; */
+    border-radius: 5px;
+    border: 2px solid #2196F3;
+}
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 5px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.insurance_price p {
+    margin: 0;
+    color: #2395FF;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.insurance_price p span {
+    font-size: 12px;
+    color: rgba(151, 151, 151, 1);
+}
+
+.insurance_desc {
+    padding: 0px 30px;
+}
+
+.insurance_desc p {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.proceed_btn {
+    width: 691px;
+    height: 57px;
+    background: #2395FF;
+    border-radius: 10px;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.175s ease-in-out;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.proceed_btn:hover {
+    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+}
+
+.detail_2 {
+    width: 40%;
+}
+
+.fligth_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fligth_details h3 {
+    font-size: 24px;
+    color: #FFF;
+    /* margin: 0; */
+}
+
+.fligth_details p {
+    color: #FFF;
+    cursor: pointer;
+}
+
+.details_container {
+    background: #FFF;
+    border-radius: 15px;
+    height: fit-content;
+}
+
+.details {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 2px solid rgba(210, 194, 255, 0.68);
+}
+
+.airlines {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.airlines p {
+    color: black;
+}
+
+.departure {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.departure h4 {
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+    margin: 0;
+}
+
+.date {
+    display: flex;
+    gap: 35px;
+}
+
+.date p {
+    color: #595959;
+    font-size: 14px;
+    margin: 0;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.note div p {
+    color: #2196F3;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px;
+}
+
+.total h3 {
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+    margin: 0;
+    /* margin-left: 28px; */
+}
+
+.total h2 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #2395FF;
+    margin: 0;
+}

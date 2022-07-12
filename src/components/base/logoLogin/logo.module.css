@@ -1,0 +1,13 @@
+.logoLogin {
+  display: flex;
+  align-items: baseline;
+  font-size: 14px;
+  gap: 20px;
+}
+.logoBooking {
+  display: flex;
+  align-items: baseline;
+  font-size: 14px;
+  padding-left: 20px;
+  gap: 10px;
+}
