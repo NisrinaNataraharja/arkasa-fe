@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './searchResult.module.css'
-import Header from '../../components/base/Header/index'
 import CardTicket from '../../components/base/CardTicket';
 import style from './searchResult.module.css'
 import Box from '@mui/material/Box';
@@ -19,9 +18,7 @@ const SearchResult = () => {
     return (
         <>
             <div style={{ background: "#F5F6FA", width: "100%", height: "100vh" }}>
-                <HeaderSearch 
-                
-                />
+                <HeaderSearch/>
                 <div className='container-fluid pe-5 ps-5' style={{ background: "#F5F6FA", width: "100%", height: "1725px" }}>
                     <div className='row'>
                         {/* left filter */}
