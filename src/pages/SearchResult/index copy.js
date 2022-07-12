@@ -165,7 +165,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFourHalf">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourHalf" aria-expanded="true" aria-controls="panelsStayOpen-collapseFourHalf">
-                                                    Time Arrived
+                                                    Airlines
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFourHalf" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFourHalf">
