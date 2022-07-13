@@ -47,6 +47,7 @@ const Login = () => {
           </form>
           <p>Did you forgot your password?</p>
           <Link to="/forgot">Tap here for reset</Link>
+          <Link to="/register">Register</Link>
           <hr />
           <p>or sign in with</p>
           <div className={styles.icon}>

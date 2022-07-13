@@ -7,18 +7,33 @@ import style from './searchResult.module.css'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import HeaderSearch from '../../components/base/Header/headerSearch';
+import Navbar from '../../components/module/navbar';
+import Footer from '../../components/module/footer'
 
 const SearchResult = () => {
+    const [direct, setDirect] = useState('')
+    const [transit1, setTransit1] = useState('')
+    const [transit2, setTransit2] = useState('')
+    const [luggage, setLuggage] = useState('')
+    const [meal, setMeal] = useState('')
+    const [wifi, setWifi] = useState('')
+    console.log(wifi);
+    console.log(direct);
+    console.log(transit1);
+    console.log(transit2);
+    console.log(direct);
+    console.log(meal);
+    console.log(luggage);
     const [value, setValue] = useState([0, 100]);
     console.log(value);
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
     return (
         <>
+            <Navbar />
             <div style={{ background: "#F5F6FA", width: "100%", height: "100vh" }}>
-                <HeaderSearch/>
+                <HeaderSearch />
                 <div className='container-fluid pe-5 ps-5' style={{ background: "#F5F6FA", width: "100%", height: "1725px" }}>
                     <div className='row'>
                         {/* left filter */}
@@ -47,16 +62,38 @@ const SearchResult = () => {
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Direct
                                                             <input
                                                                 type='checkbox'
+                                                                value="direct"
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setDirect('direct');
+                                                                    } else {
+                                                                        setDirect('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Transit
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit1('transit1');
+                                                                    } else {
+                                                                        setTransit1('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Transit 2+
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <hr className='m-3 mb-0' />
@@ -76,16 +113,37 @@ const SearchResult = () => {
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Luggage
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setLuggage('lunggage');
+                                                                    } else {
+                                                                        setLuggage('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">In-Flight Meal
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setMeal('meal');
+                                                                    } else {
+                                                                        setMeal('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Wifi
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setWifi('wifi');
+                                                                    } else {
+                                                                        setWifi('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <hr className='m-3 mb-0' />
@@ -105,21 +163,49 @@ const SearchResult = () => {
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <hr className='m-3 mb-0' />
@@ -130,7 +216,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFour">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
-                                                   <b>Time Arrived</b> 
+                                                    <b>Time Arrived</b>
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFour" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
@@ -164,7 +250,7 @@ const SearchResult = () => {
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingFourHalf">
                                                 <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourHalf" aria-expanded="true" aria-controls="panelsStayOpen-collapseFourHalf">
-                                                   <b>Airlines</b> 
+                                                    <b>Airlines</b>
                                                 </button>
                                             </h2>
                                             <div id="panelsStayOpen-collapseFourHalf" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFourHalf">
@@ -173,16 +259,37 @@ const SearchResult = () => {
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Garuda Indonesia
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">Air Asia
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Lion Air
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setTransit2('transit2');
+                                                                    } else {
+                                                                        setTransit2('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <hr className='m-3 mb-0' />
@@ -268,6 +375,7 @@ const SearchResult = () => {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     )

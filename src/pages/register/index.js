@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../components/base/logoLogin";
 import Input from "../../components/base/input";
 import Button from "../../components/base/button";
@@ -11,6 +11,10 @@ import { useFormik } from "formik";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [isAgree, setIsAgree] = useState(false)
+  const handleCheckbox = (e) => {
+    setIsAgree(e.target.checked)
+  }
   const formik = useFormik({
     initialValues: {
       fullname: "",
@@ -24,8 +28,16 @@ const Register = () => {
     }),
     onSubmit: (values) => {
       console.log("form data", formik.values);
-      swal("Register Succes!", "success anda Register", "success");
-      navigate("/login");
+      if (!isAgree) {
+        swal({
+          title: "Warning",
+          text: `Anda harus menyetujui persyaratan kami terlebih dahulu untuk lanjut!`,
+          icon: "warning"
+        });
+      } else {
+        swal("Register Succes!", "success anda Register", "success");
+        navigate("/login");
+      }
     },
   });
   return (
@@ -46,11 +58,11 @@ const Register = () => {
             {formik.errors.email && formik.touched.email && <p>{formik.errors.email}</p>}
             <Input type="password" name="password" placeholder="Password" className="inputLogin" value={formik.values.password} onChange={formik.handleChange} />
             {formik.errors.password && formik.touched.password && <p>{formik.errors.password}</p>}
+            <p className={styles.acc}>
+              <Input type="checkbox" className="check" name="check" onChange={handleCheckbox} /> Accept terms and condition
+            </p>
             <Button typr="submit" title="Sign Up" btn="login" color="blue" />
           </form>
-          <p className={styles.acc}>
-            <Input type="checkbox" className="check" name="check" /> Accept terms and condition
-          </p>
           <hr />
           <p>Already have an account?</p>
           <Link to="/login">
