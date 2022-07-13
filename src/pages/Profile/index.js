@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../../components/base/button";
 import Input from "../../components/base/input";
+import Footer from "../../components/module/footer";
+import Navbar from "../../components/module/navbar";
 import ProfileCard from "../../components/module/profileCard";
 import styles from "./profile.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { detailProfile } from "../../config/redux/actions/profileAction";
 
 const Profile = () => {
+  const { profileId } = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+  console.log(profileId);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const id = localStorage.getItem("id");
+    const formData = new FormData();
+    formData.append("id", id);
+    dispatch(detailProfile(formData, token));
+  }, []);
+
   return (
     <div className={styles.pageProfile}>
+      <Navbar />
       <div className={styles.content}>
         <div className={styles.profileContent}>
           <ProfileCard name="Mike Kowalski" address="Medan,Indonesia" profImg="/img/profileexample.svg" noCard="4441 1235 5512 5551" typeCard="Z" saldoCard="1,440,2" />
@@ -38,6 +55,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
