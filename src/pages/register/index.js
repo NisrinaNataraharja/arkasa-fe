@@ -5,9 +5,11 @@ import Button from "../../components/base/button";
 import styles from "./register.module.css";
 import LogoBaner from "../../components/base/logobaner";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import swal from "sweetalert";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import {registerUser} from '../../config/redux/actions/userAction'
 
 const Register = () => {
   const navigate = useNavigate();
@@ -15,30 +17,32 @@ const Register = () => {
   const handleCheckbox = (e) => {
     setIsAgree(e.target.checked)
   }
+  const dispatch = useDispatch()
   const formik = useFormik({
     initialValues: {
-      fullname: "",
+      name: "",
       email: "",
       password: "",
     },
     validationSchema: yup.object({
-      fullname: yup.string().required("Required"),
+      name: yup.string().required("Required"),
       email: yup.string().email("Invalid email format").required("Required"),
       password: yup.string().min(8, "Minimum 8 character").required("Required"),
     }),
     onSubmit: (values) => {
-      console.log("form data", formik.values);
-      // if (!isAgree) {
-      //   swal({
-      //     title: "Warning",
-      //     text: `Anda harus menyetujui persyaratan kami terlebih dahulu untuk lanjut!`,
-      //     icon: "warning"
-      //   });
-      // } else {
-      //   swal("Register Succes!", "success anda Register", "success");
-      //   navigate("/login");
-      // }
-    },
+        try {
+          dispatch(registerUser(values, navigate))
+          
+        } catch (error) {
+          swal.fire({
+            title: "Error!",
+            text: error,
+            icon: "error",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#6a4029",
+        });
+        }
+      },
   });
   return (
     <div className={styles.pageRegister}>
@@ -52,8 +56,8 @@ const Register = () => {
             <h1>Register</h1>
           </div>
           <form onSubmit={formik.handleSubmit}>
-            <Input type="text" name="fullname" placeholder="Full Name" className="inputLogin" value={formik.values.fullname} onChange={formik.handleChange} />
-            {formik.errors.fullname && formik.touched.fullname && <p>{formik.errors.fullname}</p>}
+            <Input type="text" name="name" placeholder="Full Name" className="inputLogin" value={formik.values.name} onChange={formik.handleChange} />
+            {formik.errors.name && formik.touched.name && <p>{formik.errors.name}</p>}
             <Input type="email" name="email" placeholder="Email" className="inputLogin" value={formik.values.email} onChange={formik.handleChange} />
             {formik.errors.email && formik.touched.email && <p>{formik.errors.email}</p>}
             <Input type="password" name="password" placeholder="Password" className="inputLogin" value={formik.values.password} onChange={formik.handleChange} />

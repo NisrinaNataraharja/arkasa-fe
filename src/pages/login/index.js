@@ -6,11 +6,14 @@ import styles from "./login.module.css";
 import LogoBaner from "../../components/base/logobaner";
 import swal from "sweetalert";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import {loginUser} from '../../config/redux/actions/userAction'
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -18,12 +21,24 @@ const Login = () => {
     },
     validationSchema: yup.object({
       email: yup.string().email("Invalid email format").required("Required"),
-      password: yup.string().min(8, "Minimum 8 character").required("Required"),
+      password: yup.string().min(3, "Minimum 3 character").required("Required"),
     }),
-    onSubmit: (values) => {
-      console.log("form data", formik.values);
-      swal("Login Succes!", "success anda berhasil login", "success");
-      navigate("/");
+    onSubmit: (values) => 
+    {
+      try {
+        dispatch(loginUser(values, navigate))
+      // swal("Login Succes!", "success anda berhasil login", "success");
+      // navigate("/");
+        
+      } catch (error) {
+        swal.fire({
+          title: "Error!",
+          text: error,
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#6a4029",
+      });
+      }
     },
   });
 
@@ -47,7 +62,6 @@ const Login = () => {
           </form>
           <p>Did you forgot your password?</p>
           <Link to="/forgot">Tap here for reset</Link>
-          <Link to="/register">Register</Link>
           <hr />
           <p>or sign in with</p>
           <div className={styles.icon}>
