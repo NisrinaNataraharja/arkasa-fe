@@ -28,16 +28,16 @@ const Register = () => {
     }),
     onSubmit: (values) => {
       console.log("form data", formik.values);
-      if (!isAgree) {
-        swal({
-          title: "Warning",
-          text: `Anda harus menyetujui persyaratan kami terlebih dahulu untuk lanjut!`,
-          icon: "warning"
-        });
-      } else {
-        swal("Register Succes!", "success anda Register", "success");
-        navigate("/login");
-      }
+      // if (!isAgree) {
+      //   swal({
+      //     title: "Warning",
+      //     text: `Anda harus menyetujui persyaratan kami terlebih dahulu untuk lanjut!`,
+      //     icon: "warning"
+      //   });
+      // } else {
+      //   swal("Register Succes!", "success anda Register", "success");
+      //   navigate("/login");
+      // }
     },
   });
   return (
