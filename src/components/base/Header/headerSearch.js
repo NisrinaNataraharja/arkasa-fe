@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './header.module.css'
 
-const HeaderSearch = () => {
+const HeaderSearch = ({onClick}) => {
     return (
         <div className={style.main}>
             <div className={style.plane}>
@@ -108,7 +108,7 @@ const HeaderSearch = () => {
                 
             </div>
             <div className={`${style.right} col-12 d-flex flex-row-reverse bd-highlight`}>
-                                <button className="btn btn-transparent text-white">
+                                <button className="btn btn-transparent text-white" onClick={onClick}>
                                     <b>Change Search</b>
                                 </button>
                             </div>

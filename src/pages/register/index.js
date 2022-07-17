@@ -32,7 +32,13 @@ const Register = () => {
     onSubmit: (values) => {
         try {
           dispatch(registerUser(values, navigate))
-          
+          if (!isAgree) {
+            swal({
+              title: "Warning",
+              text: `Anda harus menyetujui persyaratan kami terlebih dahulu untuk lanjut!`,
+              icon: "warning"
+            });
+          }
         } catch (error) {
           swal.fire({
             title: "Error!",

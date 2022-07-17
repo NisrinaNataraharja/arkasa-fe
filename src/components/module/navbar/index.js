@@ -23,7 +23,7 @@ function Navbar() {
         }
     }
 
-    console.log(isModalActive)
+    // console.log(isModalActive)
     console.log(menuActive)
 
     return (

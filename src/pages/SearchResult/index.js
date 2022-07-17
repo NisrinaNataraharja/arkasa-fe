@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './searchResult.module.css'
@@ -9,31 +11,73 @@ import Slider from '@mui/material/Slider';
 import HeaderSearch from '../../components/base/Header/headerSearch';
 import Navbar from '../../components/module/navbar';
 import Footer from '../../components/module/footer'
+import { getTicket } from '../../config/redux/actions/ticketAction'
 
 const SearchResult = () => {
-    const [direct, setDirect] = useState('')
-    const [transit1, setTransit1] = useState('')
-    const [transit2, setTransit2] = useState('')
-    const [luggage, setLuggage] = useState('')
-    const [meal, setMeal] = useState('')
-    const [wifi, setWifi] = useState('')
-    console.log(wifi);
-    console.log(direct);
-    console.log(transit1);
-    console.log(transit2);
-    console.log(direct);
-    console.log(meal);
-    console.log(luggage);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { ticket } = useSelector((state) => state.ticket);
+    console.log(ticket);
+    const [query] = useSearchParams();
+    const queryTransit = query.get('transit') ? query.get('transit') : '';
+    const queryFacilities = query.get('facilities') ? query.get('facilities') : '';
+    const queryDeparture = query.get('departure') ? query.get('departure') : '';
+    const queryArrive = query.get('arrive') ? query.get('arrive') : '';
+    const queryAirlines = query.get('airlines') ? query.get('airlines') : '';
+    const [transit, setTransit] = useState(queryTransit)
+    const [facilities, setFacilities] = useState(queryFacilities)
+    const [departure, setDeparture] = useState(queryDeparture)
+    const [arrive, setArrive] = useState(queryArrive)
+    const [airline, setAirline] = useState(queryAirlines)
     const [value, setValue] = useState([0, 100]);
-    console.log(value);
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const [isRangeChange, setIsRangeChange] = useState(false)
+    const [rangeValue, setRangeValue] = useState([])
+    console.log(transit);
+    const search = (e) => {
+        e.preventDefault();
+        dispatch(
+            getTicket(
+                transit,
+                facilities,
+                departure,
+                arrive,
+                airline
+            )
+        );
+        return navigate(
+            `?transit=${transit}&facilities=${facilities}&departure=${departure}&arrive=${arrive}&airline=${airline}`
+        );
     };
+    console.log(isRangeChange);
+    console.log(value);
+    console.log(rangeValue);
+    const handleChange = (event, newValue) => {
+        const values = []
+        newValue.map((value) => {
+            values.push(value * 100)
+        })
+        setRangeValue(values)
+        setValue(newValue);
+        setIsRangeChange(true)
+
+    };
+    const reset = () => {
+        setTransit('');
+        setFacilities('');
+        setDeparture('');
+        setArrive('');
+        setAirline('');
+      };
+
     return (
         <>
             <Navbar />
             <div style={{ background: "#F5F6FA", width: "100%", height: "100vh" }}>
-                <HeaderSearch />
+                <HeaderSearch
+                    onClick={(e) => {
+                        search(e);
+                    }}
+                />
                 <div className='container-fluid pe-5 ps-5' style={{ background: "#F5F6FA", width: "100%", height: "1725px" }}>
                     <div className='row'>
                         {/* left filter */}
@@ -43,7 +87,7 @@ const SearchResult = () => {
                                 <h5>
                                     <b>Filter</b>
                                 </h5>
-                                <button className="btn btn-transparent text-primary">
+                                <button className="btn btn-transparent text-primary" onClick={reset}>
                                     <b>Reset</b>
                                 </button>
                             </div>
@@ -52,7 +96,7 @@ const SearchResult = () => {
                                     <div className="accordion" id="accordionPanelsStayOpenExample" style={{ width: "100%" }}>
                                         <div className={`${style.square} accordion-item`}>
                                             <h2 className="accordion-header" id="panelsStayOpen-headingOne">
-                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                                <button className={`${style.toogle} accordion-button`} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" >
                                                     <b>Transit</b>
                                                 </button>
                                             </h2>
@@ -65,9 +109,9 @@ const SearchResult = () => {
                                                                 value="direct"
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setDirect('direct');
+                                                                        setTransit('direct');
                                                                     } else {
-                                                                        setDirect('');
+                                                                        setTransit('');
                                                                     }
                                                                 }}
                                                             />
@@ -77,9 +121,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit1('transit1');
+                                                                        setTransit('transit1');
                                                                     } else {
-                                                                        setTransit1('');
+                                                                        setTransit('');
                                                                     }
                                                                 }}
                                                             />
@@ -89,9 +133,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setTransit('transit2');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setTransit('');
                                                                     }
                                                                 }}
                                                             />
@@ -115,9 +159,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setLuggage('lunggage');
+                                                                        setFacilities('lunggage');
                                                                     } else {
-                                                                        setLuggage('');
+                                                                        setFacilities('');
                                                                     }
                                                                 }}
                                                             />
@@ -127,9 +171,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setMeal('meal');
+                                                                        setFacilities('meal');
                                                                     } else {
-                                                                        setMeal('');
+                                                                        setFacilities('');
                                                                     }
                                                                 }}
                                                             />
@@ -139,9 +183,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setWifi('wifi');
+                                                                        setFacilities('wifi');
                                                                     } else {
-                                                                        setWifi('');
+                                                                        setFacilities('');
                                                                     }
                                                                 }}
                                                             />
@@ -165,9 +209,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setDeparture('mid');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setDeparture('');
                                                                     }
                                                                 }}
                                                             />
@@ -177,9 +221,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setDeparture('morning');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setDeparture('');
                                                                     }
                                                                 }}
                                                             />
@@ -189,9 +233,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setDeparture('afternoon');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setDeparture('');
                                                                     }
                                                                 }}
                                                             />
@@ -201,9 +245,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setDeparture('night');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setDeparture('');
                                                                     }
                                                                 }}
                                                             />
@@ -225,21 +269,49 @@ const SearchResult = () => {
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">00:00 - 06:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setArrive('mid');
+                                                                    } else {
+                                                                        setArrive('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3 ">06:00 - 12:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setArrive('morning');
+                                                                    } else {
+                                                                        setArrive('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">12:00 - 18:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setArrive('afternoon');
+                                                                    } else {
+                                                                        setArrive('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <li className="d-flex justify-content-between mt-3 pe-3 ps-3">18:00 - 24:00
                                                             <input
                                                                 type='checkbox'
+                                                                onChange={(e) => {
+                                                                    if (e.target.checked) {
+                                                                        setArrive('night');
+                                                                    } else {
+                                                                        setArrive('');
+                                                                    }
+                                                                }}
                                                             />
                                                         </li>
                                                         <hr className='m-3 mb-0' />
@@ -261,9 +333,9 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setAirline('Garuda Indonesia');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setAirline('');
                                                                     }
                                                                 }}
                                                             />
@@ -273,21 +345,21 @@ const SearchResult = () => {
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setAirline('Air Asia');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setAirline('');
                                                                     }
                                                                 }}
                                                             />
                                                         </li>
-                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Lion Air
+                                                        <li className="d-flex justify-content-between mt-3 pe-3 ps-3">Fly Emirates
                                                             <input
                                                                 type='checkbox'
                                                                 onChange={(e) => {
                                                                     if (e.target.checked) {
-                                                                        setTransit2('transit2');
+                                                                        setAirline('Fly Emirates');
                                                                     } else {
-                                                                        setTransit2('');
+                                                                        setAirline('');
                                                                     }
                                                                 }}
                                                             />
@@ -326,16 +398,16 @@ const SearchResult = () => {
                                                                     width: "25%", background: 'white', border: 'none'
                                                                 }}
                                                                 type='text'
-                                                                placeholder={'$' + value[0] + ',00'}
+                                                                placeholder={'$' + value[0] * 100 + ',00'}
                                                                 className='form-control'
                                                                 disabled
                                                             />
                                                             <input
                                                                 type='text'
-                                                                placeholder={'$' + value[1] + ',00'}
+                                                                placeholder={'$' + value[1] * 100 + ',00'}
                                                                 className='form-control '
                                                                 style={{
-                                                                    width: "22%", background: 'white', border: 'none'
+                                                                    width: "25%", background: 'white', border: 'none'
                                                                 }}
                                                                 disabled
                                                             />
@@ -371,7 +443,20 @@ const SearchResult = () => {
                                     </svg>
                                 </button>
                             </div>
-                            <CardTicket />
+                            {ticket.data ? ticket.data.map((item) => {
+                                console.log(ticket);
+                                return (
+                                    <CardTicket key={item.id}
+                                        image={item.airline_logo}
+                                        airline={item.airline}
+                                        origin={item.country_origin}
+                                        destination={item.country_destination}
+                                        transit={item.transit}
+                                        departure={item.departure}
+                                        arrive={item.arrive}
+                                    />)
+                            }) : 'No Ticket Found'}
+
                         </div>
                     </div>
                 </div>
