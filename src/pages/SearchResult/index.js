@@ -24,14 +24,18 @@ const SearchResult = () => {
     const queryDeparture = query.get('departure') ? query.get('departure') : '';
     const queryArrive = query.get('arrive') ? query.get('arrive') : '';
     const queryAirlines = query.get('airlines') ? query.get('airlines') : '';
+    const queryMinPrice = query.get('minPrice') ? query.get('minPrice') : '';
+    const queryMaxPrice = query.get('maxPrice') ? query.get('maxPrice') : '';
     const [transit, setTransit] = useState(queryTransit)
     const [facilities, setFacilities] = useState(queryFacilities)
     const [departure, setDeparture] = useState(queryDeparture)
     const [arrive, setArrive] = useState(queryArrive)
     const [airline, setAirline] = useState(queryAirlines)
     const [value, setValue] = useState([0, 100]);
-    const [isRangeChange, setIsRangeChange] = useState(false)
-    const [rangeValue, setRangeValue] = useState([])
+    const [minPrice, setminPrice] = useState(queryMinPrice)
+    const [maxPrice, setMaxPrice] = useState(queryMaxPrice)
+    // const [isRangeChange, setIsRangeChange] = useState(false)
+    // const [rangeValue, setRangeValue] = useState([])
     console.log(transit);
     const search = (e) => {
         e.preventDefault();
@@ -41,24 +45,24 @@ const SearchResult = () => {
                 facilities,
                 departure,
                 arrive,
-                airline
+                airline,
+                minPrice,
+                maxPrice
             )
         );
         return navigate(
-            `?transit=${transit}&facilities=${facilities}&departure=${departure}&arrive=${arrive}&airline=${airline}`
+            `?transit=${transit}&facilities=${facilities}&departure=${departure}&arrive=${arrive}&airline=${airline}&min_price=${minPrice}&max_price=${maxPrice}`
         );
     };
-    console.log(isRangeChange);
-    console.log(value);
-    console.log(rangeValue);
+
     const handleChange = (event, newValue) => {
         const values = []
         newValue.map((value) => {
             values.push(value * 100)
         })
-        setRangeValue(values)
         setValue(newValue);
-        setIsRangeChange(true)
+        setminPrice(values[0])
+        setMaxPrice(values[1])
 
     };
     const reset = () => {
@@ -67,7 +71,14 @@ const SearchResult = () => {
         setDeparture('');
         setArrive('');
         setAirline('');
-      };
+
+    };
+
+    const handleClickTicket = () => {
+        navigate('/flight-detail')
+        dispatch({ type: 'GET_TICKET_ID', payload: ticket })
+    }
+
 
     return (
         <>
@@ -425,7 +436,7 @@ const SearchResult = () => {
                         >
                             <div className="d-flex justify-content-between my-3 d-none d-lg-flex align-items-center">
                                 <h5>
-                                    <b>Select Ticket <span className="ms-2 text-secondary" style={{ fontSize: "14px", fontWeight: "600" }}>(6 flight found)</span></b>
+                                    <b>Select Ticket <span className="ms-2 text-secondary" style={{ fontSize: "14px", fontWeight: "600" }}>{`(${ticket.data.length} flight found)`}</span></b>
                                 </h5>
                                 <button className="btn btn-transparent ">
                                     <b className='me-3' >Sort by</b>
@@ -443,7 +454,7 @@ const SearchResult = () => {
                                     </svg>
                                 </button>
                             </div>
-                            {ticket.data ? ticket.data.map((item) => {
+                            {ticket.data.length >= 1 ? ticket.data.map((item) => {
                                 console.log(ticket);
                                 return (
                                     <CardTicket key={item.id}
@@ -454,6 +465,9 @@ const SearchResult = () => {
                                         transit={item.transit}
                                         departure={item.departure}
                                         arrive={item.arrive}
+                                        price={item.price}
+                                        facilities={item.facilities}
+                                        onClick={() => handleClickTicket()}
                                     />)
                             }) : 'No Ticket Found'}
 
