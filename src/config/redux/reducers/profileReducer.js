@@ -1,16 +1,6 @@
 const initialState = {
-  profileedit: [],
-  profileId: {
-    id: "",
-    name: "",
-    email: "",
-    phone: "",
-    city: "",
-    address: "",
-    postalcode: "",
-    photo: "",
-    role: "",
-  },
+  profile: [],
+  isloading: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -18,12 +8,12 @@ const profileReducer = (state = initialState, action) => {
     case "GET_PROFILE_ID":
       return {
         ...state,
-        profileId: action.payload,
+        profile: action.payload,
       };
     case "EDIT_PROFILE":
       return {
         ...state,
-        profileId: action.payload,
+        profile: action.payload,
       };
     default:
       return state;

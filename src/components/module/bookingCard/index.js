@@ -2,11 +2,11 @@ import Button from "../../base/button";
 import React from "react";
 import styles from "./booking.module.css";
 
-const BookingCard = ({ date, time, from, to, maskapai, code, status }) => {
+const BookingCard = ({ date, key, from, to, maskapai, code, status }) => {
   return (
     <div className={styles.bookingCard}>
       <div className={styles.date}>{date ? date : ""}</div>
-      <div className={styles.destination}>
+      <div className={styles.destination} key={key}>
         <div>{from ? from : ""}</div>
         <div>
           <img src="/img/fligticon.svg" alt="" />

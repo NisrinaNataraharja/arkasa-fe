@@ -1,18 +1,33 @@
 import React from "react";
-import Button from "../../base/button";
+// import Button from "../../base/button";
 import styles from "./profile.module.css";
-import { Link } from "react-router-dom";
-const ProfileCard = ({ name, address, profImg, noCard, typeCard, saldoCard }) => {
+import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import Input from "../../base/input";
+
+const ProfileCard = ({ name, city, address, profImg, noCard, typeCard, saldoCard, onChange }) => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await localStorage.clear();
+    swal({
+      title: "Log Out",
+      text: `Log Out Success`,
+      icon: "success",
+    });
+    navigate("/login");
+  };
   return (
     <div className={styles.profileCard}>
       <div className={styles.wraperProfile}>
         <img src={profImg ? profImg : ""} alt="" />
       </div>
       <div>
-        <Button title="Select photo" btn="btnProfile" color="white" />
+        <Input label="Select photo" name="files" id="files" className="inputFoto" classNameLabel="labelFoto" type="file" onChange={onChange} />
       </div>
       <div className={styles.name}>{name ? name : ""}</div>
-      <div className={styles.address}>{address ? address : ""}</div>
+      <div className={styles.address}>
+        {city ? city : ""}, {address ? address : ""}
+      </div>
       <div className={styles.titleCard}>
         <div>Cards</div>
         <div>+ Add</div>
@@ -53,8 +68,8 @@ const ProfileCard = ({ name, address, profImg, noCard, typeCard, saldoCard }) =>
           <div>
             <img src="/img/exit.svg" alt="" />
           </div>
-          <Link to="/login">
-            <div>Logout</div>
+          <Link to="">
+            <div onClick={handleLogout}>Logout</div>
           </Link>
         </div>
       </div>
