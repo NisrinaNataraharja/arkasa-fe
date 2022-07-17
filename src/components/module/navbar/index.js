@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { LogoWithRouter } from "../../base/logo";
 import UserAva from "../../base/userAva";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [isModalActive, setIsModalActive] = useState(false);
   const [menuActive, setMenuActive] = useState("");
 
@@ -23,6 +23,12 @@ function Navbar() {
     }
   };
 
+  useEffect(() => {
+    const localData = localStorage.getItem("Arkasa");
+    if (localData) {
+      setIsLogin(true);
+    }
+  }, []);
   console.log(isModalActive);
   console.log(menuActive);
 
@@ -96,7 +102,9 @@ function Navbar() {
             </Link>
           </div>
         ) : (
-          <button className={`${styles.signup_btn}`}>Sign Up</button>
+          <NavLink to="/login">
+            <button className={`${styles.signup_btn}`}>Sign Up</button>
+          </NavLink>
         )}
       </div>
       {isModalActive && (

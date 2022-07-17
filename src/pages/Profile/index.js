@@ -7,10 +7,10 @@ import ProfileCard from "../../components/module/profileCard";
 import styles from "./profile.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { detailProfile, editProfile } from "../../config/redux/actions/profileAction";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { profile } = useSelector((state) => state.profile);
   const id = profile.id;
   // console.log("console di page profile", id);
@@ -63,11 +63,11 @@ const Profile = () => {
     setDataPofile(newdata);
   };
 
-  // useEffect(() => {
-  //   const localdata = localStorage.getItem("Arkasa");
-  //   const { token } = JSON.parse(localdata);
-  //   dispatch(detailProfile(token));
-  // }, []);
+  useEffect(() => {
+    const localdata = localStorage.getItem("Arkasa");
+    const { token } = JSON.parse(localdata);
+    dispatch(detailProfile(token));
+  }, []);
 
   return (
     <div className={styles.pageProfile}>
