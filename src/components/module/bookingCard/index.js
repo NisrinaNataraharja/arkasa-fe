@@ -1,12 +1,13 @@
 import Button from "../../base/button";
 import React from "react";
 import styles from "./booking.module.css";
+import { Link } from "react-router-dom";
 
-const BookingCard = ({ date, key, from, to, maskapai, code, status }) => {
+const BookingCard = ({ date, id, from, to, maskapai, code, status }) => {
   return (
     <div className={styles.bookingCard}>
       <div className={styles.date}>{date ? date : ""}</div>
-      <div className={styles.destination} key={key}>
+      <div className={styles.destination} key={id}>
         <div>{from ? from : ""}</div>
         <div>
           <img src="/img/fligticon.svg" alt="" />
@@ -22,6 +23,9 @@ const BookingCard = ({ date, key, from, to, maskapai, code, status }) => {
           <span>Status</span>
           <Button title={status === 1 ? "Eticket issued" : "Waiting for payment"} btn="status" color={status === 1 ? "green" : "orange"} />
         </div>
+        <Link to={`/bookingDetail/${id}`}>
+          <p>View Detail</p>
+        </Link>
       </div>
     </div>
   );

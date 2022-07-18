@@ -27,6 +27,9 @@
     display: flex;
     justify-content: space-between;
   }
+  .order a {
+    text-decoration: none;
+  }
   .statusorder {
     gap: 200px;
   }

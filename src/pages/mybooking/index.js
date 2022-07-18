@@ -51,7 +51,7 @@ const MyBooking = () => {
           </div>
           <div className={styles.historyBooking}>
             {isLoading === false
-              ? booking.data?.map((item) => <BookingCard key={item.index} date={moment(item.createdat).format("LLLL")} from={item.origin} to={item.destination} maskapai={item.airlinename} code="" status={item.status} />)
+              ? booking.data?.map((item) => <BookingCard id={item.orderid} date={moment(item.createdat).format("LLLL")} from={item.origin} to={item.destination} maskapai={item.airlinename} code="" status={item.status} />)
               : "Data Loading..."}
             {/* <BookingCard date="Sunday, 29 Agust 22" time="00:00" from="SG" to="IDN" maskapai="Air ASIA" code="ABCD" status="0" /> */}
           </div>

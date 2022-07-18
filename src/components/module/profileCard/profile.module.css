@@ -72,12 +72,18 @@
   color: black;
 }
 .user {
+  justify-content: center;
   border: 1px solid #2395ff;
   box-sizing: border-box;
   border-radius: 100%;
   width: 20px;
   height: 20px;
+  position: relative;
+  /* padding: 1px; */
 }
 .user img {
-  object-fit: fill;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
