@@ -470,14 +470,13 @@ const SearchResult = () => {
                                         onClick={() => handleClickTicket()}
                                     />)
                             }) : 'No Ticket Found'}
-
-                        </div>
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        </>
-    )
+                         </div>
+                     </div>
+                 </div>
+                 <Footer />
+             </div>
+         </>
+     )
 }
 
 export default SearchResult
