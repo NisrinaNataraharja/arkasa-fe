@@ -418,7 +418,7 @@ const SearchResult = () => {
                                                                 placeholder={'$' + value[1] * 100 + ',00'}
                                                                 className='form-control '
                                                                 style={{
-                                                                    width: "25%", background: 'white', border: 'none'
+                                                                    width: "30%", background: 'white', border: 'none'
                                                                 }}
                                                                 disabled
                                                             />
