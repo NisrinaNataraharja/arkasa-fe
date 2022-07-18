@@ -1,9 +1,5 @@
 const initialState = {
-    user: {
-        fullname: '',
-        email: '',
-        role: ''
-    },
+    user: {},
     isLoading: false
 }
 
@@ -22,6 +18,22 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
         case 'USER_LOGIN_ERROR':
+            return {
+                ...state,
+                isLoading: false
+            }
+            case 'USER_REGISTER_PENDING':
+            return {
+                ...state,
+                isLoading: true
+            }
+        case 'USER_REGISTER_SUCCESS':
+            return {
+                ...state,
+                user: action.payload,
+                isLoading: false
+            }
+        case 'USER_REGISTER_ERROR':
             return {
                 ...state,
                 isLoading: false

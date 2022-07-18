@@ -3,36 +3,97 @@ import Navbar from '../../components/module/navbar'
 import styles from './FlightDetail.module.css'
 import CountryCode from './CountryCodes.json'
 import Footer from '../../components/module/footer'
+import { useDispatch } from 'react-redux'
+import { getTicketDetailAction } from '../../config/redux/actions/ticketDetailAction'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
+import { addBookingReducer } from '../../config/redux/reducers/addBookingReducer'
+import { addBookingAction } from '../../config/redux/actions/addBookingAction'
+import { useNavigate } from 'react-router-dom'
 
 function FlightDetail() {
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { ticketDetail : {ticket : dataTicket} } = useSelector(state => state)
+    // const { ticket : {ticketId : { data : [id]}}} = useSelector(state => state) // ini buat ambil id dari redux
+    const { user : {user : dataProfile}} =  useSelector(state => state)
+    const [ticket , setTicket] = useState({})
     const [countryCode, setCountryCode] = useState(CountryCode)
     const [isValid, setisValid] = useState(true)
     const [fligthDetails, setFlightDetails] = useState('')
+    const [price, setPrice] = useState(0)
+    const [check, setCheck] = useState(false)
+    const [profile, setProfile] = useState({})
+    const [same, setSame] = useState(false)
+    const [passenger, setPassenger] = useState({
+        passengerTitle : "",
+        passengerName : "",
+        nationality : "",
+        airlineId : ticket.airline_id,
+        userId : profile.id,
+        insurance : false
+    })
 
     useEffect(() => {
-        setFlightDetails({ ...fligthDetails, dialCode: '+62', title: 'mr', nationality: 'Indonesia' })
+        console.log('getting ticket detail')
+        const id = 'a573819b-b47b-400a-a2d6-3e1df0b98aeb'
+        dispatch(getTicketDetailAction(id))
+        setTicket(dataTicket)
+        setProfile(dataProfile)  
+    }, [])
+    
+    useEffect(() => {
+        console.log(passenger)
+    },[passenger])
+
+    useEffect(() => {
+        if(check === true){
+            setPrice((current) => 2)
+        }else{
+            setPrice(0)
+        }
+    }, [check])
+
+    useEffect(() => {
+        setFlightDetails({ ...fligthDetails, dialCode: '+62', passengerTitle: 'mr', nationality: 'Indonesia' })
+        setPassenger({...passenger, fligthDetails})
     }, [])
 
     const handleChange = (e) => {
         e.persist()
-
-        setFlightDetails({ ...fligthDetails, [e.target.name]: e.target.value })
+        setPassenger({
+            ...passenger,
+            ...fligthDetails,
+            [e.target.name] : e.target.value,
+            airlineId : ticket.airline_id,
+            userId : profile.id,
+            ticketId : ticket.id 
+        })
+        
     }
 
     const handleInsurance = (e) => {
         e.persist()
-
-        if(fligthDetails.insurance === true) {
-            setFlightDetails({ ...fligthDetails, insurance: false })
-        } else {
-            setFlightDetails({ ...fligthDetails, insurance: true })
-
-        }
-        
+        setCheck(!check)
+        setPassenger({...passenger, insurance : !check})
     }
 
-    console.log(fligthDetails)
+    const handleSubmit = () => {
+        if(same){
+            const data = {
+                ...passenger,
+                ...fligthDetails,
+                airlineId : ticket.airline_id,
+                userId : profile.id,
+                ticketId : ticket.id, 
+                passengerName : profile.name
+            }
+            console.log(data)
+        }else{
+            dispatch(addBookingAction(passenger, navigate))
+        }
+    }
+        
 
     return (
         <div className={`${styles.flight_detail}`}>
@@ -51,6 +112,7 @@ function FlightDetail() {
                                     placeholder='Your full name'
                                     id='name'
                                     name='name'
+                                    value={profile.name || ""}
                                     autoFocus
                                     onChange={handleChange}
                                 />
@@ -62,6 +124,7 @@ function FlightDetail() {
                                     placeholder='youremail@gmailcom'
                                     id='email'
                                     name='email'
+                                    value={profile.email || ""}
                                     onChange={handleChange}
                                 />
                             </div>
@@ -89,6 +152,7 @@ function FlightDetail() {
                                         placeholder='87784799xxx'
                                         id='phone'
                                         name='phone'
+                                        value={profile.phone || ""}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -111,14 +175,14 @@ function FlightDetail() {
                                 <div className={`${styles.action_toggler}`}>
                                     <p>Same as contact person</p>
                                     <label className="form-switch">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" onChange={() => setSame(!same)}/>
                                         <i></i>
                                     </label>
                                 </div>
                             </div>
                             <div className={`${styles.input_form} ${styles.input_select}`}>
                                 <label htmlFor='title'>Title</label>
-                                <select name="title" id="title" onChange={handleChange}>
+                                <select name="passengerTitle" id="title" onChange={handleChange} disabled={same}>
                                     <option value="mr">Mr.</option>
                                     <option value="mrs">Mrs.</option>
                                 </select>
@@ -129,14 +193,16 @@ function FlightDetail() {
                                     type="text"
                                     placeholder='Your full name'
                                     id='fullName'
-                                    name='fullName'
+                                    name='passengerName'
+                                    value={same ? profile.name : passenger.name}
+                                    disabled={same}
                                     onChange={handleChange}
                                 />
                             </div>
                             <div className={`${styles.input_form} ${styles.input_select}`}>
                                 <label htmlFor='nationality'>Nationality</label>
-                                <select name="nationality" id="nationality" defaultValue={'Indonesia'} onChange={handleChange}>
-                                    <option value="">Select nationality</option>
+                                <select disabled={same} name="nationality" id="nationality" defaultValue={'Indonesia'} onChange={handleChange}>
+                                    <option value="" disabled={same}>Select nationality</option>
                                     {countryCode && countryCode.map((dial, idx) => {
                                         return (
                                             <option
@@ -158,7 +224,7 @@ function FlightDetail() {
                             <div className={`${styles.insurance}`}>
                                 <div className={`${styles.checkbox}`}>
                                     <label htmlFor='insurance' className={`${styles.container}`}>Travel Insurance
-                                        <input type="checkbox" name='insurance' id='insurance' onClick={handleInsurance}/>
+                                        <input type="checkbox" name='insurance' id='insurance' checked={check} onClick={handleInsurance}/>
                                         <span className={`${styles.checkmark}`}></span>
                                     </label>
                                 </div>
@@ -171,7 +237,7 @@ function FlightDetail() {
                             </div>
                         </div>
                     </div>
-                    <button className={`${styles.proceed_btn}`}>
+                    <button className={`${styles.proceed_btn}`} onClick={handleSubmit}>
                         Proceed to Payment
                     </button>
                 </div>
@@ -184,19 +250,23 @@ function FlightDetail() {
                         <div className={`${styles.details_container}`}>
                             <div className={`${styles.details}`}>
                                 <div className={`${styles.airlines}`}>
-                                    <img src="/assets/img/icons/garuda-indonesia.png" alt="airlines-brand" />
-                                    <p>Garuda Indonesia</p>
+                                    {
+                                        ticket.airline_logo ? 
+                                        <img src={ticket.airline_logo} width="100px" alt="airlines-brand" /> :
+                                        <img src="/assets/img/icons/garuda-indonesia.png" alt="airlines-brand" />
+                                    }
+                                    <p>{ticket.airline ? ticket.airline : "Loading..."}</p>
                                 </div>
                                 <div className={`${styles.departure}`}>
-                                    <h4>Medan(IDN)</h4>
+                                    <h4>{ticket.origin || "Loading..."}({ticket.country_origin || "Loading..."})</h4>
                                     <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M18.5559 15.6H0.475875C0.213001 15.6 8.45316e-05 15.8685 8.45316e-05 16.2V17.4C8.45316e-05 17.7315 0.213001 18 0.475875 18H18.5559C18.8188 18 19.0317 17.7315 19.0317 17.4V16.2C19.0317 15.8685 18.8188 15.6 18.5559 15.6ZM2.39539 11.5977C2.58214 11.8542 2.84442 11.9997 3.11889 11.9993L7.00074 11.9926C7.30709 11.9921 7.60904 11.9006 7.88215 11.7256L16.5344 6.1888C17.3296 5.67993 18.0424 4.95357 18.5274 4.00221C19.0718 2.93423 19.131 2.16136 18.916 1.61537C18.7016 1.069 18.1803 0.66776 17.1838 0.586011C16.2962 0.513263 15.4133 0.808008 14.6181 1.3165L11.6888 3.1911L5.18531 0.113894C5.10711 0.0474663 5.01627 0.00858352 4.92216 0.00126566C4.82806 -0.0060522 4.73412 0.0184604 4.65004 0.0722692L2.69484 1.32363C2.37755 1.5265 2.30083 2.06049 2.5411 2.39348L7.1866 6.07218L4.11746 8.0364L1.96599 6.6688C1.89187 6.62167 1.80999 6.59718 1.72698 6.59731C1.64397 6.59744 1.56215 6.62219 1.48812 6.66955L0.294777 7.43341C-0.015676 7.63216 -0.0974525 8.1504 0.129143 8.48639L2.39539 11.5977Z" fill="#979797" />
                                     </svg>
-                                    <h4>Tokyo(JPN)</h4>
+                                    <h4>{ticket.destination || "Loading..."}({ticket.country_destination || "Loading..."})</h4>
                                 </div>
                                 <div className={`${styles.date}`}>
-                                    <p>Sunday, 15 August 2020</p>
-                                    <p>12:33 - 15:21</p>
+                                    <p>{ticket.date || "Loading..."}</p>
+                                    <p>{ticket.departure || ""} - {ticket.arrive || ""}</p>
                                 </div>
                                 <div className={`${styles.note}`}>
                                     <div>
@@ -217,7 +287,7 @@ function FlightDetail() {
                             </div>
                             <div className={`${styles.total}`}>
                                 <h3>Total Payment</h3>
-                                <h2>$ 145,00</h2>
+                                <h2>$ {ticket.price ? ticket.price + price : "0"},00</h2>
                             </div>
                         </div>
                     </div>
