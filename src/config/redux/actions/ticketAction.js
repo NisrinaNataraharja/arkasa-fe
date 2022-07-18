@@ -2,14 +2,15 @@ import axios from 'axios'
 import swal from 'sweetalert';
 
 export const getTicket = (
-  transit,
-  facilities,
-  departure,
-  arrive,
-  airline,
-  minPrice,
-  maxPrice
+  transit='',
+  facilities='',
+  departure='',
+  arrive='',
+  airline='',
+  minPrice='',
+  maxPrice=''
   ) => async (dispatch) => {
+
     try {
         dispatch({ type: 'GET_TICKET_PENDING' })
         const result = await axios.get(`${process.env.REACT_APP_API_BACKEND}/ticket?transit=${transit}&facilities=${facilities}&departure=${departure}&arrive=${arrive}&airline=${airline}&min_price=${minPrice}&max_price=${maxPrice}`)

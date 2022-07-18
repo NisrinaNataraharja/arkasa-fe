@@ -17,7 +17,7 @@ const SearchResult = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { ticket } = useSelector((state) => state.ticket);
-    console.log(ticket);
+    console.log(ticket.length);
     const [query] = useSearchParams();
     const queryTransit = query.get('transit') ? query.get('transit') : '';
     const queryFacilities = query.get('facilities') ? query.get('facilities') : '';
@@ -34,11 +34,13 @@ const SearchResult = () => {
     const [value, setValue] = useState([0, 100]);
     const [minPrice, setminPrice] = useState(queryMinPrice)
     const [maxPrice, setMaxPrice] = useState(queryMaxPrice)
+    const [isFilter, setIsFilter] = useState(false)
     // const [isRangeChange, setIsRangeChange] = useState(false)
     // const [rangeValue, setRangeValue] = useState([])
     console.log(transit);
     const search = (e) => {
         e.preventDefault();
+        setIsFilter(true)
         dispatch(
             getTicket(
                 transit,
@@ -74,10 +76,17 @@ const SearchResult = () => {
 
     };
 
-    const handleClickTicket = () => {
+    const handleClickTicket = (ticketId) => {
         navigate('/flight-detail')
-        dispatch({ type: 'GET_TICKET_ID', payload: ticket })
+        dispatch({ type: 'GET_TICKET_ID', payload: ticketId })
     }
+
+    useEffect(() => {
+        // if(isFilter) {
+        console.log('test first render fetch')
+        dispatch(getTicket())
+        // }
+    }, [])
 
 
     return (
@@ -436,7 +445,9 @@ const SearchResult = () => {
                         >
                             <div className="d-flex justify-content-between my-3 d-none d-lg-flex align-items-center">
                                 <h5>
-                                    <b>Select Ticket <span className="ms-2 text-secondary" style={{ fontSize: "14px", fontWeight: "600" }}>{`(${ticket.data.length} flight found)`}</span></b>
+                                    <b>Select Ticket <span className="ms-2 text-secondary" style={{ fontSize: "14px", fontWeight: "600" }}>
+                                        {`(${ticket.data.length} flight found)`}
+                                    </span></b>
                                 </h5>
                                 <button className="btn btn-transparent ">
                                     <b className='me-3' >Sort by</b>
@@ -454,7 +465,7 @@ const SearchResult = () => {
                                     </svg>
                                 </button>
                             </div>
-                            {ticket.data.length >= 1 ? ticket.data.map((item) => {
+                            {ticket.data?.length >= 1 ? ticket.data.map((item) => {
                                 console.log(ticket);
                                 return (
                                     <CardTicket key={item.id}
@@ -467,16 +478,16 @@ const SearchResult = () => {
                                         arrive={item.arrive}
                                         price={item.price}
                                         facilities={item.facilities}
-                                        onClick={() => handleClickTicket()}
+                                        onClick={() => handleClickTicket(item.id)}
                                     />)
                             }) : 'No Ticket Found'}
-                         </div>
-                     </div>
-                 </div>
-                 <Footer />
-             </div>
-         </>
-     )
+                        </div>
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        </>
+    )
 }
 
 export default SearchResult

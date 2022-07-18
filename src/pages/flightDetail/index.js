@@ -14,10 +14,11 @@ import { useNavigate } from 'react-router-dom'
 function FlightDetail() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { ticketDetail : {ticket : dataTicket} } = useSelector(state => state)
-    // const { ticket : {ticketId : { data : [id]}}} = useSelector(state => state) // ini buat ambil id dari redux
-    const { user : {user : dataProfile}} =  useSelector(state => state)
-    const [ticket , setTicket] = useState({})
+    const { ticketDetail: { ticket: dataTicket } } = useSelector(state => state)
+    const { ticket: { ticketId: id } } = useSelector(state => state)
+    // ini buat ambil id dari redux
+    const { user: { user: dataProfile } } = useSelector(state => state)
+    const [ticket, setTicket] = useState({})
     const [countryCode, setCountryCode] = useState(CountryCode)
     const [isValid, setisValid] = useState(true)
     const [fligthDetails, setFlightDetails] = useState('')
@@ -26,37 +27,37 @@ function FlightDetail() {
     const [profile, setProfile] = useState({})
     const [same, setSame] = useState(false)
     const [passenger, setPassenger] = useState({
-        passengerTitle : "",
-        passengerName : "",
-        nationality : "",
-        airlineId : ticket.airline_id,
-        userId : profile.id,
-        insurance : false
+        passengerTitle: "",
+        passengerName: "",
+        nationality: "",
+        airlineId: ticket.airline_id,
+        userId: profile.id,
+        insurance: false
     })
 
     useEffect(() => {
         console.log('getting ticket detail')
-        const id = 'a573819b-b47b-400a-a2d6-3e1df0b98aeb'
+        // const id = 'a573819b-b47b-400a-a2d6-3e1df0b98aeb'
         dispatch(getTicketDetailAction(id))
         setTicket(dataTicket)
-        setProfile(dataProfile)  
-    }, [])
-    
-    useEffect(() => {
-        console.log(passenger)
-    },[passenger])
+        setProfile(dataProfile)
+    }, [id])
 
     useEffect(() => {
-        if(check === true){
+        console.log(passenger)
+    }, [passenger])
+
+    useEffect(() => {
+        if (check === true) {
             setPrice((current) => 2)
-        }else{
+        } else {
             setPrice(0)
         }
     }, [check])
 
     useEffect(() => {
         setFlightDetails({ ...fligthDetails, dialCode: '+62', passengerTitle: 'mr', nationality: 'Indonesia' })
-        setPassenger({...passenger, fligthDetails})
+        setPassenger({ ...passenger, fligthDetails })
     }, [])
 
     const handleChange = (e) => {
@@ -64,36 +65,42 @@ function FlightDetail() {
         setPassenger({
             ...passenger,
             ...fligthDetails,
-            [e.target.name] : e.target.value,
-            airlineId : ticket.airline_id,
-            userId : profile.id,
-            ticketId : ticket.id 
+            [e.target.name]: e.target.value,
+            airlineId: ticket.airline_id,
+            userId: profile.id,
+            ticketId: ticket.id
         })
-        
+
     }
 
     const handleInsurance = (e) => {
         e.persist()
         setCheck(!check)
-        setPassenger({...passenger, insurance : !check})
+        setPassenger({ ...passenger, insurance: !check })
+
     }
 
     const handleSubmit = () => {
-        if(same){
+        if (same) {
             const data = {
                 ...passenger,
                 ...fligthDetails,
-                airlineId : ticket.airline_id,
-                userId : profile.id,
-                ticketId : ticket.id, 
-                passengerName : profile.name
+                airlineId: ticket.airline_id,
+                userId: profile.id,
+                ticketId: ticket.id,
+                passengerName: profile.name
             }
             console.log(data)
-        }else{
+        } else {
+            if (passenger.insurance === true) {
+                passenger.insurance = 1
+            } else {
+                passenger.insurance = 0
+            }
             dispatch(addBookingAction(passenger, navigate))
         }
     }
-        
+
 
     return (
         <div className={`${styles.flight_detail}`}>
@@ -175,7 +182,7 @@ function FlightDetail() {
                                 <div className={`${styles.action_toggler}`}>
                                     <p>Same as contact person</p>
                                     <label className="form-switch">
-                                        <input type="checkbox" onChange={() => setSame(!same)}/>
+                                        <input type="checkbox" onChange={() => setSame(!same)} />
                                         <i></i>
                                     </label>
                                 </div>
@@ -224,7 +231,7 @@ function FlightDetail() {
                             <div className={`${styles.insurance}`}>
                                 <div className={`${styles.checkbox}`}>
                                     <label htmlFor='insurance' className={`${styles.container}`}>Travel Insurance
-                                        <input type="checkbox" name='insurance' id='insurance' checked={check} onClick={handleInsurance}/>
+                                        <input type="checkbox" name='insurance' id='insurance' checked={check} onClick={handleInsurance} />
                                         <span className={`${styles.checkmark}`}></span>
                                     </label>
                                 </div>
@@ -251,9 +258,9 @@ function FlightDetail() {
                             <div className={`${styles.details}`}>
                                 <div className={`${styles.airlines}`}>
                                     {
-                                        ticket.airline_logo ? 
-                                        <img src={ticket.airline_logo} width="100px" alt="airlines-brand" /> :
-                                        <img src="/assets/img/icons/garuda-indonesia.png" alt="airlines-brand" />
+                                        ticket.airline_logo ?
+                                            <img src={ticket.airline_logo} width="100px" alt="airlines-brand" /> :
+                                            <img src="/assets/img/icons/garuda-indonesia.png" alt="airlines-brand" />
                                     }
                                     <p>{ticket.airline ? ticket.airline : "Loading..."}</p>
                                 </div>

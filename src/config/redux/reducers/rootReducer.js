@@ -7,7 +7,7 @@ import { bookingReducer } from "./bookingReducer";
 import { productsReducer, detailProdReducer } from './productsReducer'
 import { ticketDetailReducer } from './ticketDetailReducer'
 import { addBookingReducer } from './addBookingReducer'
-import ticketReducer from './ticketReducer'
+// import ticketReducer from './ticketReducer'
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
     productDetail: detailProdReducer,
     ticketDetail: ticketDetailReducer,
     latestBooking : addBookingReducer
-    ticket: ticketReducer,
+    // ticket: ticketReducer,
 })
 
 export default rootReducer;
