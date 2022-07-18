@@ -1,13 +1,12 @@
 import {combineReducers} from 'redux'
 import userReducer from './userReducer'
 import adminReducer from './adminReducer'
-import { productsReducer, detailProdReducer } from './productsReducer'
+import ticketReducer from './ticketReducer'
 
 const rootReducer = combineReducers({
     user: userReducer,
     admin: adminReducer,
-    products: productsReducer,
-    productDetail: detailProdReducer
+    ticket: ticketReducer,
 })
 
 export default rootReducer

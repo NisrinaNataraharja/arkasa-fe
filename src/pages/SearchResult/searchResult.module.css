@@ -1,0 +1,16 @@
+.toogle:focus,
+.toogle:active,
+.toogle:hover,
+.toogle[aria-expanded="true"] {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    background: #fff !important;
+    color: black !important;
+    border: none !important;
+}
+
+.square {
+    border: none !important;
+    /* background: red !important; */
+}
