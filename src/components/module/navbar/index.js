@@ -5,7 +5,7 @@ import styles from './Navbar.module.css'
 
 function Navbar() {
 
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(false)
     const [isModalActive, setIsModalActive] = useState(false)
     const [menuActive, setMenuActive] = useState('')
 
