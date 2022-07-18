@@ -1,5 +1,6 @@
 const initialState = {
     ticket: [],
+    ticketId: '',
     isLoading: false
 };
 
@@ -20,7 +21,12 @@ export default function ticketReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false
-            }
+            };
+            case 'GET_TICKET_ID':
+            return {
+                ...state,
+                ticketId: action.payload
+            };
         default:
             return state;
     }
