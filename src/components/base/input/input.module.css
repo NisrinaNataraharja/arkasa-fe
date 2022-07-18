@@ -26,3 +26,16 @@ label {
   outline-color: #2395ff;
   outline-width: 1px;
 }
+.inputFoto {
+  display: none;
+}
+.labelFoto {
+  border-radius: 10px;
+  background-color: white;
+  border: 3px solid #2395ff;
+  color: #2395ff;
+  width: 250px;
+  height: 50px;
+  padding: 10px 20px;
+  text-align: center;
+}

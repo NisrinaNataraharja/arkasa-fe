@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import {loginUser} from '../../config/redux/actions/userAction'
+import { loginUser } from "../../config/redux/actions/userAction";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,13 +23,11 @@ const Login = () => {
       email: yup.string().email("Invalid email format").required("Required"),
       password: yup.string().min(3, "Minimum 3 character").required("Required"),
     }),
-    onSubmit: (values) => 
-    {
+    onSubmit: (values) => {
       try {
-        dispatch(loginUser(values, navigate))
-      // swal("Login Succes!", "success anda berhasil login", "success");
-      // navigate("/");
-        
+        dispatch(loginUser(values, navigate));
+        // swal("Login Succes!", "success anda berhasil login", "success");
+        // navigate("/");
       } catch (error) {
         swal.fire({
           title: "Error!",
@@ -37,7 +35,7 @@ const Login = () => {
           icon: "error",
           confirmButtonText: "Ok",
           confirmButtonColor: "#6a4029",
-      });
+        });
       }
     },
   });

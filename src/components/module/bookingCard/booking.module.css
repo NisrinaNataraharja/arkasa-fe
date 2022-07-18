@@ -11,9 +11,7 @@
   display: flex;
   gap: 80px;
 }
-.details {
-  display: none;
-}
+
 .airline {
   color: #979797;
 }
@@ -24,12 +22,13 @@
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
-  .details {
-    display: flex;
-  }
+
   .order {
     display: flex;
     justify-content: space-between;
+  }
+  .order a {
+    text-decoration: none;
   }
   .statusorder {
     gap: 200px;
