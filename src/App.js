@@ -1,13 +1,13 @@
 import './App.css';
 import Routers from './config/routers/routers';
-// import Home from './pages/landing';
+
 
 function App() {
   return (
+    <div className="App">
       <Routers />
+    </div>
   );
 }
-
-
 
 export default App;
