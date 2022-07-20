@@ -82,7 +82,7 @@ npm run build
       <td align="center">
         <a href="">
           <img width="150" src="" alt="Nisrina Hasna. N"><br/>
-          <b>Nevalen Aginda Prasetyo</b>
+          <b>Nisrina Hasna N</b>
         </a>
       </td>
       <td align="center">
