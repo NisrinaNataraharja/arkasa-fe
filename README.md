@@ -1,4 +1,4 @@
-<h1 align="center">ARKASA TICKETING</h1>
+<h1 align="center">ANKASA TICKETING</h1>
 
 <p align="center">
   <img height="150" src="https://i.ibb.co/WFZVxPb/arkasa-logo.png"  />
@@ -8,7 +8,7 @@
 </p>
 
 ## About
-ARKASA TICKETING is an online ticketing website that provides various features for online plane ticket reservations. Created by the Fantastic Six team. Built with React JS, Express JS, and Postgree SQL.
+ANKASA TICKETING is an online ticketing website that provides various features for online plane ticket reservations. Created by the Fantastic Six team. Built with React JS, Express JS, and Postgree SQL.
 
 ## Dependencies
 - [React Js](https://(https://reactjs.org)/)
@@ -48,10 +48,10 @@ npm run build
   
 
 ## Backend
-* [`BACKEND ARKASA TICKETING`](https://github.com/muhislah/angkasa_backend)
+* [`BACKEND ANKASA TICKETING`](https://github.com/muhislah/angkasa_backend)
 
 ## Deploy
-* [`WEB ARKASA TICKETING`](https://ankasa.vercel.app/)
+* [`WEB ANKASA TICKETING`](https://ankasa.vercel.app/)
 
 
 ## Kontributor
