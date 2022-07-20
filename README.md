@@ -54,7 +54,7 @@ npm run build
 * [`WEB ANKASA TICKETING`](https://ankasa.vercel.app/)
 
 
-## Kontributor
+## Contributor
 
 <center>
   <table>
