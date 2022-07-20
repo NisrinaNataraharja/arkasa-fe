@@ -59,7 +59,7 @@ npm run build
 <center>
   <table>
     <tr>
-      <th>Backend/PM</th>
+      <th>Backend/PO</th>
       <th>Backend</th>
       <th>Backend</th>
       <th>Frontend</th>
