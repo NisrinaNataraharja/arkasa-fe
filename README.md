@@ -92,13 +92,13 @@ npm run build
         </a>
       </td>
       <td align="center">
-        <a href="">
+        <a href="https://github.com/fwzfrds">
           <img width="150" src="https://avatars.githubusercontent.com/u/85775604?v=4" alt="M. Fawwaz Firdaus"><br/>
           <b>M. Fawwaz Firdaus</b>
         </a>
       </td>
       <td align="center">
-        <a href="">
+        <a href="https://github.com/NisrinaNataraharja">
           <img width="150" src="https://avatars.githubusercontent.com/u/98700935?v=4" alt="Nisrina Hasna. N"><br/>
           <b>Nisrina Hasna. N</b>
         </a>
