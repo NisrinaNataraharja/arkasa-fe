@@ -80,8 +80,8 @@ npm run build
         </a>
       </td>
       <td align="center">
-        <a href="">
-          <img width="150" src="" alt="Sendi Alamsyah"><br/>
+        <a href="https://github.com/sendialamsyah">
+          <img width="150" src="https://avatars.githubusercontent.com/u/103249655?v=4" alt="Sendi Alamsyah"><br/>
           <b>Sendi Alamsyah</b>
         </a>
       </td>
