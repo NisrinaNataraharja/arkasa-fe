@@ -74,23 +74,36 @@ npm run build
         </a>
       </td>
       <td align="center">
+        <a href="https://github.com/hasbialwikusmana">
+          <img width="150" src="https://avatars.githubusercontent.com/u/97004294?v=4" alt="Hasbi Alwi. K"><br/>
+          <b>Hasbi Alwi. K</b>
+        </a>
+      </td>
+      <td align="center">
         <a href="">
-          <img width="150" src="" alt="Fawwaz Firdaus"><br/>
+          <img width="150" src="" alt="Sendi Alamsyah"><br/>
+          <b>Sendi Alamsyah</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="">
+          <img width="150" src="" alt="Irfan Abidin"><br/>
+          <b>Irfan Abidin</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="">
+          <img width="150" src="https://avatars.githubusercontent.com/u/85775604?v=4" alt="M. Fawwaz Firdaus"><br/>
           <b>M. Fawwaz Firdaus</b>
         </a>
       </td>
       <td align="center">
         <a href="">
-          <img width="150" src="" alt="Nisrina Hasna. N"><br/>
-          <b>Nisrina Hasna N</b>
-        </a>
-      </td>
-      <td align="center">
-        <a href="">
-          <img width="150" src="" alt=""><br/>
-          <b></b>
+          <img width="150" src="https://avatars.githubusercontent.com/u/98700935?v=4" alt="Nisrina Hasna. N"><br/>
+          <b>Nisrina Hasna. N</b>
         </a>
       </td>
     </tr>
   </table>
 </center>
+<img style="display: block;-webkit-user-select: none;max-width: 100%;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="">
