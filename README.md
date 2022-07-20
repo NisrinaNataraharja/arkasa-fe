@@ -10,7 +10,7 @@
 ## About
 ARKASA TICKETING is an online ticketing website that provides various features for online plane ticket reservations. Created by the Fantastic Six team. Built with React JS, Express JS, and Postgree SQL.
 
-## Dependensi
+## Dependencies
 - [React Js](https://(https://reactjs.org)/)
 - [Axios](https://www.npmjs.com/package/axios)
 - [Bootstrap](https://www.npmjs.com/package/bootstrap)
