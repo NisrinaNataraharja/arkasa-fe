@@ -15,7 +15,7 @@ const MyBooking = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const localdata = localStorage.getItem("Arkasa");
+    const localdata = localStorage.getItem("Ankasa");
     const { token } = JSON.parse(localdata);
     const id = localStorage.getItem("id");
     const formData = new FormData();

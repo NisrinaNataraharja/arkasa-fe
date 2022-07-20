@@ -7,17 +7,10 @@ export const loginUser = (loginData, navigate) => async (dispatch) => {
         const result = await axios.post(`${process.env.REACT_APP_API_BACKEND}/auth/login`, loginData)
         const user = result.data.data
 
-        const dataLocal = {
-            name: result.data.data.name,
-            id: result.data.data.id,
-            email: result.data.data.email,
-            role: result.data.data.role,
-            token: result.data.data.token,
-            refreshToken: result.data.data.refreshToken,
-        }
+        const dataLocal = user
 
         console.log(dataLocal)
-        localStorage.setItem('Arkasa', JSON.stringify(dataLocal))
+        localStorage.setItem('Ankasa', JSON.stringify(dataLocal))
 
         dispatch({ type: 'USER_LOGIN_SUCCESS', payload: user })
 

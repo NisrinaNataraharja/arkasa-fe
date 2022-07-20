@@ -41,7 +41,7 @@ const Profile = () => {
 
   const handleData = (e) => {
     e.preventDefault();
-    const localdata = localStorage.getItem("Arkasa");
+    const localdata = localStorage.getItem("Ankasa");
     const { token } = JSON.parse(localdata);
     // console.log(id);
     const formData = new FormData();
@@ -64,7 +64,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    const localdata = localStorage.getItem("Arkasa");
+    const localdata = localStorage.getItem("Ankasa");
     const { token } = JSON.parse(localdata);
     dispatch(detailProfile(token));
   }, []);

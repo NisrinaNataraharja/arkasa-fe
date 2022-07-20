@@ -6,8 +6,9 @@ import styles from "./Navbar.module.css";
 
 function Navbar() {
     const [isLogin, setIsLogin] = useState(false);
-    const [isModalActive, setIsModalActive] = useState(false);
-    const [menuActive, setMenuActive] = useState("");
+    const [isModalActive, setIsModalActive] = useState(false)
+    const [menuActive, setMenuActive] = useState("")
+    const [profileImg, setProfileImg] = useState('')
 
     const handleMenuActive = (e) => {
         const menu = e.target.innerText;
@@ -24,13 +25,15 @@ function Navbar() {
     };
 
     useEffect(() => {
-        const localData = localStorage.getItem("Arkasa");
+        const localData = localStorage.getItem("Ankasa")
+        const data = JSON.parse(localData)
         if (localData) {
-            setIsLogin(true);
+            setIsLogin(true)
+            setProfileImg(data.photo)
         }
     }, []);
-    console.log(isModalActive);
-    console.log(menuActive);
+
+    console.log(profileImg)
 
     return (
         <nav className={`${styles.navbar}`}>
@@ -98,7 +101,7 @@ function Navbar() {
                             />
                         </svg>
                         <Link to="/profile">
-                            <UserAva source={"/assets/img/user.jpg"} className={`${styles.profile_img}`} />
+                            <UserAva source={profileImg ? profileImg : 'https://fakeimg.pl/350x200/?text=Hello'} className={`${styles.profile_img}`} />
                         </Link>
                     </div>
                 ) : (

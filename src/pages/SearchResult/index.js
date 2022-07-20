@@ -446,7 +446,7 @@ const SearchResult = () => {
                             <div className="d-flex justify-content-between my-3 d-none d-lg-flex align-items-center">
                                 <h5>
                                     <b>Select Ticket <span className="ms-2 text-secondary" style={{ fontSize: "14px", fontWeight: "600" }}>
-                                        {`(${ticket.data.length} flight found)`}
+                                        {`(${ticket.data?.length} flight found)`}
                                     </span></b>
                                 </h5>
                                 <button className="btn btn-transparent ">
