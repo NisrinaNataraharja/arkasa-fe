@@ -87,7 +87,7 @@ npm run build
       </td>
       <td align="center">
         <a href="https://github.com/irfan43a">
-          <img width="150" src="	https://avatars.githubusercontent.com/u/98889949?v=4" alt="Irfan Abidin"><br/>
+          <img width="150" src="https://avatars.githubusercontent.com/u/98889949?v=4" alt="Irfan Abidin"><br/>
           <b>Irfan Abidin</b>
         </a>
       </td>
