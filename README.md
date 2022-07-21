@@ -48,8 +48,8 @@ npm run build
 <span>
 	  <img width="415" height="197" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/register.png">
 	  <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/login.png">
-	  <img width="415" height="234" src="">
-	  <img width="415" src="">
+	  <img width="415" height="234" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/landing.png">
+	  <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/search.png">
 	  <img width="415" height="351" src="">
 	   <img width="415" src="">
 	   <img width="415" src="">
