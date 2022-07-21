@@ -45,7 +45,15 @@ npm run build
 ```
 
 ## Screenshots
-  
+<span>
+	  <img width="415" height="197" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/register.png">
+	  <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/login.png">
+	  <img width="415" height="234" src="">
+	  <img width="415" src="">
+	  <img width="415" height="351" src="">
+	   <img width="415" src="">
+	   <img width="415" src="">
+  </span>
 
 ## Backend
 * [`BACKEND ANKASA TICKETING`](https://github.com/muhislah/angkasa_backend)
