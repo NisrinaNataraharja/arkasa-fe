@@ -1,0 +1,77 @@
+.pagelogin {
+  display: flex;
+  margin: 0;
+  padding: 0px;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+.formBaner {
+  display: none;
+  flex-direction: column;
+  background-color: #2395ff;
+}
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  /* background-color: red; */
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .formBaner {
+    display: flex;
+    width: 55%;
+    justify-content: center;
+    align-items: center;
+  }
+  .formLogin {
+    width: 45%;
+    align-items: center;
+  }
+  .formcontent {
+    width: 325px;
+  }
+  .formcontent p {
+    margin: 0;
+  }
+  .loginTitle {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+    font-size: 18px;
+  }
+}
+.formcontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginTitle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 40px;
+}
+
+.icon {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.subicon {
+  width: 95px;
+  height: 52px;
+  border: 1px solid #2395ff;
+  border-radius: 6px;
+  justify-content: center;
+  display: flex;
+  background-color: white;
+}
+.subicon img {
+  width: 24px;
+}

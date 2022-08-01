@@ -1,0 +1,14 @@
+.logo_brand {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo_brand h3 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #414141;
+    margin: 0;
+}

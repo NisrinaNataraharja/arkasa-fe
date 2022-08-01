@@ -1,0 +1,301 @@
+.navbar {
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  position: sticky;
+  top: 0px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  z-index: 10;
+}
+
+.navbar_container {
+  /* width: 100%; */
+  padding: 0px 70px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search_bar {
+  width: fit-content;
+  height: fit-content;
+  /* margin-left: 50px; */
+}
+
+.search_bar input {
+  width: 250px;
+  height: 50px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  border: none;
+  font-family: FontAwesome;
+  padding-left: 15px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.search_bar input:focus {
+  outline: none;
+}
+
+.menu {
+  width: fit-content;
+  display: flex;
+  gap: 30px;
+  /* margin-left: 50px; */
+  cursor: pointer;
+}
+
+.menu p {
+  transition: 0.175s ease-in-out;
+  /* margin: 0; */
+  box-sizing: border-box;
+  border-bottom: 3px solid transparent;
+  margin-bottom: 0px;
+}
+
+.menu p:hover {
+  font-weight: 600;
+  /* padding-bottom: 10px; */
+  border-bottom: 3px solid #2395ff;
+}
+
+.menu_active {
+  font-weight: 600;
+  border-bottom: 3px solid #2395ff !important;
+}
+.menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.signup_btn {
+  width: 150px;
+  height: 50px;
+  background: #2395ff;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.175s ease-in-out;
+}
+
+.signup_btn:hover {
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+}
+
+.user_menu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.user_menu svg {
+  cursor: pointer;
+}
+
+.profile_img {
+  width: 38px;
+  height: 38px;
+  border: 3px solid #2395ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.find_ticket_modal {
+  width: 400px;
+  height: 500px;
+  overflow: auto;
+  background: #fff;
+  margin-left: auto;
+  margin-right: 350px;
+  margin-top: -20px;
+  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.find_ticket_modal h5 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.recently {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.recently p {
+  margin: 0;
+  color: #2395ff;
+}
+
+.departures {
+  margin-top: 20px;
+  padding: 13px 20px;
+  background: #fff;
+  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.from p,
+.to p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #979797;
+  margin: 0;
+}
+
+.from h4,
+.to h4 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+  margin: 0;
+  margin-top: 7px;
+}
+
+.to {
+  text-align: end;
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.route button {
+  width: 190px;
+  height: 44px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.one_way {
+  background: #2395ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.one_way span {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+}
+
+.round_trip {
+  background: #f0f0f0;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.round_trip span {
+  font-weight: 600;
+  font-size: 14px;
+  color: #595959;
+}
+
+.date {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.date input {
+  height: 40px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  background: none;
+  padding: 0px 20px;
+}
+
+.date label {
+  font-size: 14px;
+}
+
+.passenger_count {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.passenger_count label {
+  font-size: 14px;
+}
+
+.passenger_count div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.passenger_count input {
+  height: 30px;
+  width: 140px;
+  padding: 5px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+}
+
+.class {
+  margin-top: 20px;
+}
+
+.class div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.class div label {
+  margin-left: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.class div label input {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.search_btn {
+  margin-top: 30px;
+  width: 100%;
+  height: 57px;
+  background: #2395ff;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-around;
+}

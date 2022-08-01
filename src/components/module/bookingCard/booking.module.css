@@ -1,0 +1,36 @@
+.bookingCard {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  margin: 20px 0;
+  gap: 10px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.statusorder {
+  display: flex;
+  gap: 80px;
+}
+
+.airline {
+  color: #979797;
+}
+.destination {
+  display: flex;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+
+  .order {
+    display: flex;
+    justify-content: space-between;
+  }
+  .order a {
+    text-decoration: none;
+  }
+  .statusorder {
+    gap: 200px;
+  }
+}
