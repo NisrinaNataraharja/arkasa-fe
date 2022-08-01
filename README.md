@@ -45,15 +45,21 @@ npm run build
 ```
 
 ## Screenshots
-<span>
-	  <img width="415" height="197" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/register.png">
-	  <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/login.png">
-	  <img width="415" height="200" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/landing.png">
-	  <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/search.png">
-	  <img width="415" height="200" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/profile.png">
-	   <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/my-booking.png">
-	   <img width="415" src="https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/booking-detail.png">
-  </span>
+| Login Page | Register Page |
+| ------------- | ------------- |
+| ![Login](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/login.png?raw=true "Login Page") | ![Register](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/register.png?raw=true "Register Page")|
+
+| Landing Page  | Search Page |
+| ------------- | ------------- |
+| ![Landing](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/landing.png?raw=true "Landing Page") | ![Search](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/search.png?raw=true "Search Page") |
+
+| Profile Page | My Booking Page |
+| ------------- | ------------- |
+| ![Profile](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/profile.png?raw=true "Profile Page") | ![My Booking](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/my-booking.png?raw=true "My Booking Page") |
+
+| Home Recruiter Page | Hiring Page |
+| ------------- | ------------- |
+| ![Booking Detail](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/booking-detail.png?raw=true "Booking Detail Page")
 
 ## Backend
 * [`BACKEND ANKASA TICKETING`](https://github.com/muhislah/angkasa_backend)
