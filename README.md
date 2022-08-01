@@ -51,7 +51,7 @@ npm run build
 
 | Landing Page  | Search Page |
 | ------------- | ------------- |
-| ![Landing](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/landing.png?raw=true "Landing Page") | ![Search](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/search.png?raw=true "Search Page") |
+| ![Landing](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/landing.png?raw=true "Landing Page") | ![Search](/public/assets/img/filter.png?raw=true "Search Page") |
 
 | Profile Page | My Booking Page |
 | ------------- | ------------- |
