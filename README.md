@@ -59,7 +59,7 @@ npm run build
 
 | Booking Detail Page |
 | ------------- |
-| ![Booking Detail](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/booking-detail.png?raw=true "Booking Detail Page")
+| ![Booking Detail](https://res.cloudinary.com/wazcomp/image/upload/v1659368177/booking-detail_gknbpj.png?raw=true "Booking Detail Page")
 
 ## Backend
 * [`BACKEND ANKASA TICKETING`](https://github.com/muhislah/angkasa_backend)
