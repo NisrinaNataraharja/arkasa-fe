@@ -65,7 +65,7 @@ npm run build
 * [`BACKEND ANKASA TICKETING`](https://github.com/muhislah/angkasa_backend)
 
 ## Deploy
-* [`WEB ANKASA TICKETING`](https://ankasa.vercel.app/)
+* [`WEB ANKASA TICKETING`](https://ankasa-fwzfrds.vercel.app/)
 
 
 ## Contributor
