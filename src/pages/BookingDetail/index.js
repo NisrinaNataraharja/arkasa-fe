@@ -70,6 +70,7 @@ const BookingDetail = () => {
                   <div className="col-6 text-start">
                     <b className="small text-muted">Terminal</b>
                     <p className="small">{bookingDetail.terminal}</p>
+                    {/* <p className="small">1A Soekarno-Hatta</p> */}
                   </div>
                   <div className="col-4 text-start">
                     <b className="small text-muted">Gate</b>
