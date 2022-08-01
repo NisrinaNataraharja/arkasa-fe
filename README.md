@@ -57,8 +57,8 @@ npm run build
 | ------------- | ------------- |
 | ![Profile](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/profile.png?raw=true "Profile Page") | ![My Booking](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/my-booking.png?raw=true "My Booking Page") |
 
-| Home Recruiter Page | Hiring Page |
-| ------------- | ------------- |
+| Home Recruiter Page |
+| ------------- |
 | ![Booking Detail](https://github.com/fwzfrds/arkasa-fe/blob/branch/Nisrina/booking-detail.png?raw=true "Booking Detail Page")
 
 ## Backend
